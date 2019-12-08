@@ -1,5 +1,6 @@
+import React from "react";
 import { StarWrapper, StarBtn } from "./style";
-import throttle from "lodash/throttle";
+
 class Star extends React.Component {
   constructor(props) {
     super(props);

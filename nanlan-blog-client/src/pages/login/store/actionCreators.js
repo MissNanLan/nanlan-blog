@@ -1,8 +1,4 @@
-import * as constants from "./constants";
 import axios from "axios";
-import { withRouter } from "react-router";
-import { fromJS } from "immutable";
-import { Route, Redirect } from "react-router-dom";
 
 const changeLogin = params => ({
   type: "login/commit_login",

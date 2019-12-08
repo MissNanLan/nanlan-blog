@@ -90,7 +90,7 @@ class Header extends React.Component {
 
   render() {
     const { focused, handleInputBlur, handleInputFocus, list } = this.props;
-    const  account = JSON.parse(localStorage.getItem("userInfo")).account
+    const  account = (JSON.parse(localStorage.getItem("userInfo"))|{}).account 
     const navList = [
       {
         navName: "首页",

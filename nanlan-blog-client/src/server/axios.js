@@ -12,7 +12,7 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
 
 axios.interceptors.request.use(config => {
   let res = localStorage.getItem("userInfo");
-  config.headers["x-token"] = JSON.parse(res).token;
+  config.headers["x-token"] = (JSON.parse(res)|{}).token;
   return config;
 });
 

@@ -7,6 +7,9 @@
     "antd": "^3.25.3",
     "axios": "^0.19.0",
     "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-eslint-plugin": "^2.1.0",
+    "eslint-plugin-react": "^7.5.1",
     "http-proxy-middleware": "^0.20.0",
     "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.15",
@@ -32,6 +35,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "eslint": {
+    "configFile": "./.eslintrc"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -43,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-loader": "^3.0.3"
   }
 }
