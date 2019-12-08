@@ -1,50 +1,41 @@
 {
-  "root": true,
-  "extends": ["airbnb-base", "plugin:eslint-plugin/recommended"],
-  "plugins": ["eslint-plugin"],
-  "env": {
-     "es6": true,
-     "node": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "jsx": true
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+      "browser": true,
+      "node": true,
+      "mocha": true
     },
-    "sourceType": "script",
-  },
-  "rules": {
-      "comma-dangle": [2, "never"],
-      "object-curly-spacing": [2, "never"],
-      "object-shorthand": [2, "always"],
-      "array-bracket-spacing": [2, "never"],
-      "max-len": [2, 120, {
-        "ignoreStrings": true,
-        "ignoreTemplateLiterals": true,
-        "ignoreComments": true,
-      }],
-      "operator-linebreak": [2, "after"],
-      "consistent-return": 0,
-
-      "prefer-destructuring": [2, { "array": false, "object": false }, { "enforceForRenamedProperties": false }],
-
-      "function-paren-newline": 0,
-      "no-plusplus": 1,
-      "no-param-reassign": 1,
-      "no-mixed-operators": 1,
-      "no-restricted-syntax": 1,
-      "valid-jsdoc": [2, {
-        "requireReturn": false,
-        "requireParamDescription": false,
-        "requireReturnDescription": false,
-      }],
-  },
-  "overrides": [
-    {
-      "files": "tests/**",
-      "rules": {
-        "no-template-curly-in-string": 1,
-      },
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true
+      }
     },
-  ],
-}
+    "rules": {
+      "comma-dangle": 0,
+      "indent": 0,
+      "react/prop-types": 0,
+      "react/jsx-indent-props": 0,
+      "linebreak-style": 0,
+      "react/jsx-closing-bracket-location": 0,
+      "object-curly-spacing": 0,
+      "arrow-body-style": 0,
+      "no-console": 0,
+      "max-len": 0,
+      "prefer-template": 0,
+      "import/no-unresolved": 0,
+      "global-require": 0,
+      "no-underscore-dangle": 0
+    },
+    "plugins": [
+      "react",
+      "jsx-a11y"
+    ],
+    "globals": {
+      "__DEVSERVER__": true,
+      "__DEVCLIENT__": true
+    }
+  }

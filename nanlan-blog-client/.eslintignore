@@ -1,0 +1,9 @@
+/config/**
+/public/**
+/webpack/**
+/scripts/**
+/api/promiseMiddleware.js
+
+/src/serviceWorker.js
+src/setupProxy.js
+src/App.test.js
