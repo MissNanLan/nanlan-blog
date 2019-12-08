@@ -1,10 +1,12 @@
-import React from "react";
-import moment from "moment";
+import React from 'react';
+import moment from 'moment';
 
-import { OperationWrapper, OperationItem } from "./style";
-class Opertaion extends React.Component {
+import { OperationWrapper, OperationItem } from './style';
+
+class Opertaion extends React.PureComponent {
   render() {
-    let commentObj = this.props.data;
+    const {data} = this.props;
+    const commentObj = data;
     return (
       <OperationWrapper>
         <OperationItem>
@@ -12,7 +14,7 @@ class Opertaion extends React.Component {
             <span className="btn-group">
               <span className="date iconfont">&#xe637;</span>
               <span className="text">
-                {moment(commentObj.date).format("YYYY-MM-DD HH:mm:ss")}
+                {moment(commentObj.date).format('YYYY-MM-DD HH:mm:ss')}
               </span>
             </span>
             <span className="btn-group">

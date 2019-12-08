@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
 export const ArticleList = styled.div`
   .title {
     font-size: 18px;

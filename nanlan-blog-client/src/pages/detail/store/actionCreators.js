@@ -1,16 +1,15 @@
-import reducer from "./reducer";
-import * as actionCreators from "./actionCreators";
-import * as constants from "./constants";
-import axios from "axios";
+import axios from 'axios';
+import reducer from './reducer';
+import * as constants from './constants';
 
-const getArticleDetail = prarms => ({
+const getArticleDetail = (prarms) => ({
   type: constants.GET_ARTICLE_DETAIL,
   content: prarms.content
 });
 
-export const getDetail = id => {
-  return dispatch => {
-    axios.post("/api/detail", { id: id }).then(res => {
+export const getDetail = (id) => {
+  return (dispatch) => {
+    axios.post('/api/detail', { id }).then((res) => {
       dispatch(
         getArticleDetail({
           content: res.data
@@ -20,4 +19,4 @@ export const getDetail = id => {
   };
 };
 
-export { reducer, actionCreators };
+export { reducer };

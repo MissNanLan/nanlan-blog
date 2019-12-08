@@ -1,8 +1,9 @@
-import React from "react";
-import { CSSTransition } from "react-transition-group";
-import { connect } from "react-redux";
-import { actionCreators } from "./store";
-import { IconfontStyle } from "../../static/font/iconfont";
+import React from 'react';
+import { CSSTransition } from 'react-transition-group';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { actionCreators } from './store';
+import { IconfontStyle } from '../../static/font/iconfont';
 import {
   HeaderWrapper,
   HeaderBox,
@@ -19,8 +20,8 @@ import {
   SearchInfoSwitch,
   SearchInfoList,
   SearchInfoItem
-} from "./style";
-import { NavLink } from "react-router-dom";
+} from './style';
+
 class Header extends React.Component {
   // 搜索框的下拉列表
   getListArea = () => {
@@ -39,12 +40,16 @@ class Header extends React.Component {
     const pageList = [];
 
     if (newList.length > 0) {
-      let _size = page * 10,
-        _length = newList.length;
-      let min = Math.min(_size, _length);
-      for (let i = (page - 1) * 10; i < min; i++) {
+      const _size = page * 10;
+        const _length = newList.length;
+      const min = Math.min(_size, _length);
+      for (let i = (page - 1) * 10; i < min; i += 1) {
         pageList.push(
-          <SearchInfoItem key={i}> {newList[i].name} </SearchInfoItem>
+          <SearchInfoItem key={i}>
+            {' '}
+            {newList[i].name}
+            {' '}
+          </SearchInfoItem>
         );
       }
     }
@@ -58,10 +63,10 @@ class Header extends React.Component {
           <SearchInfoTitle>
             <SearchInfoText>热门搜索</SearchInfoText>
             <SearchInfoSwitch
-              onClick={e => handlePageChange(page, totalPage, this.spinIcon, e)}
+              onClick={(e) => handlePageChange(page, totalPage, this.spinIcon, e)}
             >
               <span
-                ref={icon => {
+                ref={(icon) => {
                   this.spinIcon = icon;
                 }}
                 className="iconfont spin"
@@ -81,32 +86,33 @@ class Header extends React.Component {
           </SearchInfoList> */}
         </SearchInfo>
       );
-    } else {
-      return null;
     }
+      return null;
   };
 
   getNavList = () => {};
 
   render() {
-    const { focused, handleInputBlur, handleInputFocus, list } = this.props;
-    const  account = (JSON.parse(localStorage.getItem("userInfo"))|{}).account 
+    const {
+ focused, handleInputBlur, handleInputFocus, list
+} = this.props;
+    const {account} = JSON.parse(localStorage.getItem('userInfo')) || {};
     const navList = [
       {
-        navName: "首页",
-        path: "home"
+        navName: '首页',
+        path: 'home'
       },
       {
-        navName: "笔记",
-        path: "note"
+        navName: '笔记',
+        path: 'note'
       },
       {
-        navName: "随笔",
-        path: "essay"
+        navName: '随笔',
+        path: 'essay'
       },
       {
-        navName: "摄影",
-        path: "photography"
+        navName: '摄影',
+        path: 'photography'
       }
     ];
 
@@ -118,14 +124,14 @@ class Header extends React.Component {
             <NavLink to="/">
               <Logo />
             </NavLink>
-            {navList.map((item, index) => {
+            {navList.map((item) => {
               return (
                 <NavLink
                   to={item.path}
-                  key={index}
+                  key={item.path}
                   activeStyle={{
-                    fontWeight: "bold",
-                    color: "#ec6149"
+                    fontWeight: 'bold',
+                    color: '#ec6149'
                   }}
                   className="navItem"
                 >
@@ -137,14 +143,14 @@ class Header extends React.Component {
               <SearchWrapper>
                 <CSSTransition timeout={1000} in={focused} classNames="slide">
                   <SerachBox
-                    className={focused ? "focused" : ""}
+                    className={focused ? 'focused' : ''}
                     onFocus={() => {
                       handleInputFocus(list);
                     }}
                     onBlur={handleInputBlur}
-                  ></SerachBox>
+                   />
                 </CSSTransition>
-                <span className={focused ? "focused" : ""}></span>
+                <span className={focused ? 'focused' : ''} />
                 <span className="sousuo iconfont">&#xe62b;</span>
                 {this.getListArea()}
               </SearchWrapper>
@@ -167,28 +173,25 @@ class Header extends React.Component {
       </HeaderWrapper>
     );
   }
-
-  componentDidMount(){
-
-  }
 }
 
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    focused: state.header.get("focused"),
-    list: state.header.get("list"),
-    page: state.header.get("page"),
-    totalPage: state.header.get("totalPage"),
-    mouseIn: state.header.get("mouseIn"),
-    loginStatus: state.login.get("loginStatus"),
-    account: state.login.get("account")
+    focused: state.header.get('focused'),
+    list: state.header.get('list'),
+    page: state.header.get('page'),
+    totalPage: state.header.get('totalPage'),
+    mouseIn: state.header.get('mouseIn'),
+    // loginStatus: state.login.get('loginStatus'),
+    // account: state.login.get('account')
   };
 };
 
-const mapDispathToProps = dispatch => {
+const mapDispathToProps = (dispatch) => {
   return {
     handleInputFocus(list) {
+      // eslint-disable-next-line no-unused-expressions
       list.size === 0 && dispatch(actionCreators.getList());
       dispatch(actionCreators.searchFocus());
     },
@@ -205,13 +208,14 @@ const mapDispathToProps = dispatch => {
     handlePageChange(page, totalPage, spin, e) {
       e.nativeEvent.stopImmediatePropagation();
       if (spin) {
-        let originAngle = spin.style.transform.replace(/[^0-9]/gi, "");
+        let originAngle = spin.style.transform.replace(/[^0-9]/gi, '');
         if (originAngle) {
           originAngle = parseInt(originAngle, 10);
         } else {
           originAngle = 0;
         }
-        spin.style.transform = "rotate(" + (originAngle + 360) + "deg)";
+        // eslint-disable-next-line no-param-reassign
+        spin.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
       }
       if (page < totalPage) {
         dispatch(actionCreators.pageChange(page + 1));

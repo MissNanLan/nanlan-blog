@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const IconfontStyle = createGlobalStyle` 
 @font-face {
@@ -80,3 +80,4 @@ export const IconfontStyle = createGlobalStyle`
 }
 
 `;
+export {IconfontStyle as default };

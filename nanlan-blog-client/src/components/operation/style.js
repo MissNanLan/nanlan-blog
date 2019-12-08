@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
 export const OperationWrapper = styled.div``;
 export const OperationItem = styled.div`
   display: flex;

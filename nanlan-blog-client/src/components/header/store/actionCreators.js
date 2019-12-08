@@ -1,8 +1,8 @@
-import * as constants from "./constants";
-import axios from "axios";
-import { fromJS } from "immutable";
+import axios from 'axios';
+import { fromJS } from 'immutable';
+import * as constants from './constants';
 
-const changeList = data => ({
+const changeList = (data) => ({
   type: constants.CHANGE_LIST,
   data: fromJS(data),
   totalPage: Math.ceil(data.length / 10),
@@ -25,20 +25,20 @@ export const moueLeave = () => ({
   type: constants.MOUSE_LEAVE
 });
 
-export const pageChange = page => ({
+export const pageChange = (page) => ({
   type: constants.PAGE_CHANGE,
-  page: page
+  page
 });
 
 export const getList = () => {
-  return dispatch => {
+  return (dispatch) => {
     axios
-      .get("/api/getList.json")
-      .then(res => {
+      .get('/api/getList.json')
+      .then((res) => {
         dispatch(changeList(res.data.data));
       })
-      .catch(err => {
-        console.log("error");
+      .catch(() => {
+        console.log('error');
       });
   };
 };

@@ -1,18 +1,19 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   RecommendWrapper,
   RecommendTitle,
   RecommendContent,
   RecommendContentItem
-} from "./style";
-import { Link } from "react-router-dom";
-class Recommend extends React.Component {
+} from './style';
+
+class Recommend extends React.PureComponent {
   render() {
     return (
       <RecommendWrapper>
         <RecommendTitle>推荐文章</RecommendTitle>
         <RecommendContent>
-          <Link to={"/detail/1"}>
+          <Link to="/detail/1">
             <RecommendContentItem>
               <span className="sousuo iconfont">&#xe62b;</span>
               <span className="title">
@@ -21,7 +22,7 @@ class Recommend extends React.Component {
               </span>
             </RecommendContentItem>
           </Link>
-          <Link to={"/detail/" + "1"}>
+          <Link to="/detail/1">
             <RecommendContentItem>
               <span className="sousuo iconfont">&#xe62b;</span>
               <span className="title">
