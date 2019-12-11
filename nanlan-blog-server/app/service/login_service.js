@@ -46,10 +46,10 @@ function verifyToken(token) {
     let { exp = 0 } = res,
       current = Math.floor(Date.now() / 1000);
     if (current <= exp) {
-      res = res.data || '';
+      res = res.data || "";
     }
   } catch (e) {
-    return ''
+    res = "";
   }
   return res;
 }

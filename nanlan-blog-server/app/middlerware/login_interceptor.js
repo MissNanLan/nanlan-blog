@@ -1,7 +1,7 @@
 const Response = require("./../utils/response");
 const LoginService = require("./../service/login_service");
 
-const allowUrl = ["/home", "/api/login","/api/article"];
+const allowUrl = ["/home", "/api/login", "/api/article"];
 
 async function loginFilter(ctx, next) {
   let url = ctx.originalUrl;
@@ -13,11 +13,11 @@ async function loginFilter(ctx, next) {
     if (!token) {
       return (ctx.body = Response.error("not login", 403));
     }
-    const res = LoginService.verifyToken(token)
+    const res = LoginService.verifyToken(token);
     if (!res) {
       return (ctx.body = Response.error("not login", 403));
     }
-    ctx.request.query['loginUser'] = res
+    ctx.request.query["loginUser"] = res;
     await next();
   }
 }
