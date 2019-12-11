@@ -1,6 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
 import {
   ArticleList,
   ArticleItem,
@@ -9,27 +10,33 @@ import {
   ArticleRight,
   ArticleOperation,
   ReadMore
-} from "./style";
-import Opertaion from "../../components/operation";
-import { connect } from "react-redux";
-import { actionCreators } from "../../pages/home/store";
+} from './style';
+import Opertaion from '../operation';
+import { actionCreators } from '../../pages/home/store';
 
-class List extends React.Component {
+class List extends React.PureComponent {
   render() {
+    const {list} = this.props;
     return (
       <ArticleList>
-        {this.props.list.map((item, index) => {
-          const { like_count, comment_count, date, view_count } = item;
-          const commentObj = { like_count, comment_count, date, view_count };
+        {list && list.data && list.data.map((item) => {
+          const {
+ // eslint-disable-next-line camelcase
+ like_count, comment_count, date, view_count
+} = item;
+          const commentObj = {
+            like_count, comment_count, date, view_count
+};
           return (
-            <Link key={index} to={"/detail/" + item._id}>
-              <ArticleItem key={index}>
+            <Link key={item._id} to={'/detail/' + item._id}>
+              <ArticleItem key={item._id}>
                 <ArticleContent>
                   <ArticleLeft>
                     <img
                       src="https://www.xiahen.cn/wp-content/uploads/2019/09/2.jpg"
                       className="images"
-                    ></img>
+                      alt=""
+                     />
                   </ArticleLeft>
 
                   <ArticleRight>
@@ -38,7 +45,7 @@ class List extends React.Component {
                   </ArticleRight>
                 </ArticleContent>
                 <ArticleOperation>
-                  <Opertaion data={commentObj}></Opertaion>
+                  <Opertaion data={commentObj} />
                   <span className="more">
                     阅读更多
                     <span className="arrow iconfont">&#xe61b;</span>
@@ -49,12 +56,10 @@ class List extends React.Component {
           );
         })}
         <ReadMore
-          onClick={() =>
-            this.props.handleReadMore(
-              this.props.currentPage,
-              this.props.totalPage
-            )
-          }
+          onClick={() => {
+            const {handleReadMore, currentPage, totalPage} = this.props;
+            handleReadMore(currentPage, totalPage);
+          }}
         >
           阅读更多
         </ReadMore>
@@ -63,22 +68,22 @@ class List extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    list: state.home.get("articleList"),
-    currentPage: state.home.get("currentPage"),
-    totalPage: state.home.get("totalPage")
+    list: state.home.get('articleList'),
+    currentPage: state.home.get('currentPage'),
+    totalPage: state.home.get('totalPage')
   };
 };
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch) => {
   return {
     handleReadMore(currentPage, totalPage) {
       if (currentPage < totalPage) {
         dispatch(actionCreators.pageChange(currentPage + 1));
-      } else {
-        return <div>没有更多了</div>;
+        return null;
       }
+        return <div>没有更多了</div>;
     }
   };
 };

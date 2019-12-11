@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
 export const RecommendWrapper = styled.div`
   margin: 0 0 15px;
   background-color: #fff;

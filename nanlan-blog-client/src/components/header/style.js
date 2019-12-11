@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import logoPic from "../../static/images/logo.jpeg";
+import styled from 'styled-components';
+import logoPic from '../../static/images/logo.jpeg';
 
 export const HeaderWrapper = styled.div`
   position: fixed;
@@ -62,7 +62,7 @@ export const SearchWrapper = styled.div`
 `;
 
 export const SerachBox = styled.input.attrs({
-  placeholder: "搜索"
+  placeholder: '搜索'
 })`
   width: 160px;
   height: 38px;

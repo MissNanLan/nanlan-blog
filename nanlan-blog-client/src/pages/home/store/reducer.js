@@ -1,4 +1,4 @@
-import { fromJS } from "immutable";
+import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
   bannerList: [],
@@ -11,15 +11,15 @@ const defaultState = fromJS({
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case "change_home_data":
+    case 'change_home_data':
       return state.merge({
         bannerList: action.bannerList,
         articleList: action.articleList
       });
-    case "change_back_show":
-      return state.set("isArriveBottom", action.isArriveBottom);
-    case "page_change":
-      return state.set("currentPage", action.currentPage);
+    case 'change_back_show':
+      return state.set('isArriveBottom', action.isArriveBottom);
+    case 'page_change':
+      return state.set('currentPage', action.currentPage);
     default:
       return state;
   }

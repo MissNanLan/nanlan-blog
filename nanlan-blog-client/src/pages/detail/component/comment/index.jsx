@@ -1,10 +1,11 @@
-import React from "react";
-import { CommentWrapper, CommentTextArea, CommentBtn } from "./style";
-class Comment extends React.Component {
+import React from 'react';
+import { CommentWrapper, CommentTextArea, CommentBtn } from './style';
+
+class Comment extends React.PureComponent {
   render() {
     return (
       <CommentWrapper>
-        <CommentTextArea></CommentTextArea>
+        <CommentTextArea />
         <CommentBtn>
           <button className="button" type="button">
             发布

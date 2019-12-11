@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import bannerUrl from "../../static/images/banner1.jpeg";
+import styled from 'styled-components';
+import bannerUrl from '../../static/images/banner1.jpeg';
 
 export const HomeWrapper = styled.div`
   

@@ -1,6 +1,6 @@
-import React from "react";
-import { StarWrapper, StarBtn } from "./style";
-import throttle from "lodash/throttle";
+import React from 'react';
+import { StarWrapper, StarBtn } from './style';
+
 class Star extends React.Component {
   constructor(props) {
     super(props);
@@ -12,11 +12,20 @@ class Star extends React.Component {
     });
   }
 
+  clickStar = () => {
+    console.log(111);
+    const { isClickStar } = this.state;
+    this.setState({
+      isClickStar: !isClickStar
+    });
+  };
+
   render() {
-    const detail = this.props.detail;
+    const {detail} = this.props;
+    const {isClickStar} = this.state;
     return (
       <StarWrapper
-        className={this.state.isClickStar ? "active" : ""}
+        className={isClickStar ? 'active' : ''}
         onClick={this.handleClickStar}
       >
         <StarBtn>
@@ -26,14 +35,6 @@ class Star extends React.Component {
       </StarWrapper>
     );
   }
-
-  clickStar = () => {
-    console.log(111);
-    const { isClickStar } = this.state;
-    this.setState({
-      isClickStar: !isClickStar
-    });
-  };
 }
 
 export default Star;
