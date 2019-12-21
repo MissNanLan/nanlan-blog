@@ -11,14 +11,16 @@ import { message } from 'antd';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 axios.interceptors.request.use((config) => {
-  const res = localStorage.getItem('userInfo');
+  const userInfo = localStorage.getItem('userInfo');
   const _config = config;
-  _config.headers['x-token'] = (JSON.parse(res) || {}).token;
-  return config;
+  if (userInfo) {
+    _config.headers['x-token'] = JSON.parse(userInfo).token.data || {};
+  }
+  return _config;
 });
 
 axios.interceptors.response.use((response) => {
-  const {status} = response;
+  const { status } = response;
   if (status >= 400 && status < 500) {
     switch (status) {
       case 403:

@@ -20,7 +20,6 @@ function App() {
         <Router>
           <Switch>
             <Route path="/login" component={Login} />
-            <Route path="/login" />
             <Route
               path="/"
               render={() => (

@@ -1,9 +1,10 @@
-const Article = require("../models/article");
+const articleDao = require("../models/article");
+const behaviorDao = require("../models/behavior");
 
 async function articleService(params) {
   return new Promise((resolve, reject) => {
     const reg = new RegExp(params.keyword, "i");
-    var query = Article.find({ title: reg });
+    var query = articleDao.find({ title: reg });
     query
       .skip((params.pageNumber - 1) * params.pageSize)
       .limit(params.pageSize);
@@ -18,16 +19,9 @@ async function articleService(params) {
 }
 
 async function detailService(params) {
-  return new Promise((resolve, reject) => {
-    var query = Article.find({ _id: params.id });
-    query.exec(function(err, res) {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(res);
-      }
-    });
-  });
+  return  await articleDao.findOne({
+    _id: params.id
+  }).lean()
 }
 
 async function insertArticleService() {

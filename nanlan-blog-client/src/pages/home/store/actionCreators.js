@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../../server/axios';
 
 const changeHomeData = (result) => ({
   type: 'change_home_data',

@@ -1,3 +1,5 @@
+/* eslint-disable no-debugger */
+/* eslint-disable camelcase */
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -16,17 +18,18 @@ import { actionCreators } from '../../pages/home/store';
 
 class List extends React.PureComponent {
   render() {
-    const {list} = this.props;
+    const { list } = this.props;
+    console.log(list);
+    debugger;
     return (
       <ArticleList>
-        {list && list.data && list.data.map((item) => {
+        { list.map((item) => {
           const {
- // eslint-disable-next-line camelcase
- like_count, comment_count, date, view_count
-} = item;
+            like_count, comment_count, date, view_count
+          } = item;
           const commentObj = {
             like_count, comment_count, date, view_count
-};
+          };
           return (
             <Link key={item._id} to={'/detail/' + item._id}>
               <ArticleItem key={item._id}>
@@ -36,9 +39,8 @@ class List extends React.PureComponent {
                       src="https://www.xiahen.cn/wp-content/uploads/2019/09/2.jpg"
                       className="images"
                       alt=""
-                     />
+                    />
                   </ArticleLeft>
-
                   <ArticleRight>
                     <div className="title">{item.title}</div>
                     <p className="abstract">{item.abstract}</p>
@@ -54,10 +56,10 @@ class List extends React.PureComponent {
               </ArticleItem>
             </Link>
           );
-        })}
+        }) }
         <ReadMore
           onClick={() => {
-            const {handleReadMore, currentPage, totalPage} = this.props;
+            const { handleReadMore, currentPage, totalPage } = this.props;
             handleReadMore(currentPage, totalPage);
           }}
         >
@@ -83,7 +85,7 @@ const mapDispatch = (dispatch) => {
         dispatch(actionCreators.pageChange(currentPage + 1));
         return null;
       }
-        return <div>没有更多了</div>;
+      return <div>没有更多了</div>;
     }
   };
 };

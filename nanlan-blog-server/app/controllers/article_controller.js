@@ -1,4 +1,5 @@
 const ArticleService = require("./../service/article_service");
+const BehaviorService = require("./../service/behavior_service");
 const Response = require("./../utils/response");
 
 const article = async (ctx, next) => {
@@ -17,8 +18,23 @@ const detail = async (ctx, next) => {
   let params = {
     id: req.id
   };
-  const res = await ArticleService.detailService(params);
-  ctx.body = Response.success(res[0]);
+  let loginInfo = ctx.request.query;
+  // 判断是否登录
+  let userId = 0;
+  if (loginInfo && loginInfo.loginUser) {
+    userId = loginInfo.loginUser.userId;
+  }
+  console.log(loginInfo)
+  let article = await ArticleService.detailService(params);
+  article["starStatus"] = false;
+  if (userId != 0 && article) {
+    article["starStatus"] = await BehaviorService.findUserStarStatusToPost(
+      article._id,
+      userId
+    );
+  }
+
+  ctx.body = Response.success(article);
 };
 
 const insertArticle = async (ctx, next) => {

@@ -17,8 +17,7 @@ import { actionCreators } from './store/index';
 
 class Detail extends React.PureComponent {
   componentDidMount() {
-    const {getDetail, match} = this.props;
-
+    const { getDetail, match } = this.props;
     getDetail(match.params.id);
   }
 
@@ -27,13 +26,16 @@ class Detail extends React.PureComponent {
   }
 
   render() {
-    const {detail} = this.props;
+    const { detail } = this.props;
     const {
- likeCount, commentCount, date, viewCount
-} = detail;
-    const commentObj = {
       likeCount, commentCount, date, viewCount
-};
+    } = detail;
+    const commentObj = {
+      likeCount,
+      commentCount,
+      date,
+      viewCount
+    };
     return (
       <div>
         <DetailSide>

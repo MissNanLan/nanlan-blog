@@ -39,10 +39,10 @@ function tokenGen(userId, userName) {
   return token;
 }
 
-function verifyToken(token) {
+async function verifyToken(token) {
   let res;
   try {
-    res = jwt.verify(token, pubCert);
+    res = await jwt.verify(token, pubCert);
     let { exp = 0 } = res,
       current = Math.floor(Date.now() / 1000);
     if (current <= exp) {

@@ -1,5 +1,9 @@
 import React from 'react';
+import { message } from 'antd';
+import { withRouter } from 'react-router';
+import axios from 'axios';
 import { StarWrapper, StarBtn } from './style';
+import isLogin from '../../../../static/js/util';
 
 class Star extends React.Component {
   constructor(props) {
@@ -13,16 +17,29 @@ class Star extends React.Component {
   }
 
   clickStar = () => {
-    console.log(111);
-    const { isClickStar } = this.state;
-    this.setState({
-      isClickStar: !isClickStar
-    });
+    if (!isLogin) {
+      message.warning('你还没有登录');
+      const { history } = this.props;
+      history.push('/login');
+    } else {
+      const { isClickStar } = this.state;
+      // const articleId = props.detail.id;
+      const articleId = '5dd0cf93e30bf81fe6e4610c';
+      this.setState({
+        isClickStar: !isClickStar
+      });
+      if (!isClickStar) {
+        axios.post('/api/article/' + articleId + '/star').then(() => {});
+      } else {
+        axios.delete('/api/article/' + articleId + '/star').then(() => {});
+      }
+    }
   };
 
   render() {
-    const {detail} = this.props;
-    const {isClickStar} = this.state;
+    console.log(this.props);
+    const { detail } = this.props;
+    const { isClickStar } = this.state;
     return (
       <StarWrapper
         className={isClickStar ? 'active' : ''}
@@ -37,4 +54,4 @@ class Star extends React.Component {
   }
 }
 
-export default Star;
+export default withRouter(Star);
