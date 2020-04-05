@@ -1,9 +1,17 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import {
+ NavLink,
+  withRouter
+} from 'react-router-dom';
+import { Menu, Dropdown, Icon } from 'antd';
 import { actionCreators } from './store';
 import { IconfontStyle } from '../../static/font/iconfont';
+
 import {
   HeaderWrapper,
   HeaderBox,
@@ -22,7 +30,25 @@ import {
   SearchInfoItem
 } from './style';
 
+
 class Header extends React.Component {
+  menu = () => {
+    return (
+      <Menu>
+        <Menu.Item key="0">
+          <span onClick={this.linkTo}>
+            退出
+          </span>
+        </Menu.Item>
+      </Menu>
+    );
+  }
+
+  linkTo = () => {
+    localStorage.clear();
+    this.props.history.push('/login');
+  }
+
   // 搜索框的下拉列表
   getListArea = () => {
     const {
@@ -41,7 +67,7 @@ class Header extends React.Component {
 
     if (newList.length > 0) {
       const _size = page * 10;
-        const _length = newList.length;
+      const _length = newList.length;
       const min = Math.min(_size, _length);
       for (let i = (page - 1) * 10; i < min; i += 1) {
         pageList.push(
@@ -87,16 +113,14 @@ class Header extends React.Component {
         </SearchInfo>
       );
     }
-      return null;
+    return null;
   };
-
-  getNavList = () => {};
 
   render() {
     const {
- focused, handleInputBlur, handleInputFocus, list
-} = this.props;
-    const {account} = JSON.parse(localStorage.getItem('userInfo')) || {};
+        focused, handleInputBlur, handleInputFocus, list
+    } = this.props;
+    const { account } = JSON.parse(localStorage.getItem('userInfo')) || {};
     const navList = [
       {
         navName: '首页',
@@ -148,7 +172,7 @@ class Header extends React.Component {
                       handleInputFocus(list);
                     }}
                     onBlur={handleInputBlur}
-                   />
+                  />
                 </CSSTransition>
                 <span className={focused ? 'focused' : ''} />
                 <span className="sousuo iconfont">&#xe62b;</span>
@@ -157,17 +181,26 @@ class Header extends React.Component {
             </Search>
           </NavBar>
           <Addition>
-            { account ? (
+            {account ? (
               <AdditionItem className="loginBtn">
-                {account}
+                <Dropdown overlay={this.menu()} trigger={['hover']}>
+                  <span className="ant-dropdown-link">
+                    {account}
+                    <Icon type="down" />
+                  </span>
+                </Dropdown>
               </AdditionItem>
             ) : (
               <NavLink to="/login">
                 <AdditionItem className="loginBtn">登录</AdditionItem>
               </NavLink>
             )}
-            <AdditionItem>写文章</AdditionItem>
-            <AdditionItem>注册</AdditionItem>
+            <NavLink to="/compose">
+              <AdditionItem>写文章</AdditionItem>
+            </NavLink>
+            <NavLink to="/regisiter">
+              <AdditionItem>注册</AdditionItem>
+            </NavLink>
           </Addition>
         </HeaderBox>
       </HeaderWrapper>
@@ -175,16 +208,13 @@ class Header extends React.Component {
   }
 }
 
-
 const mapStateToProps = (state) => {
   return {
     focused: state.header.get('focused'),
     list: state.header.get('list'),
     page: state.header.get('page'),
     totalPage: state.header.get('totalPage'),
-    mouseIn: state.header.get('mouseIn'),
-    // loginStatus: state.login.get('loginStatus'),
-    // account: state.login.get('account')
+    mouseIn: state.header.get('mouseIn')
   };
 };
 
@@ -204,7 +234,6 @@ const mapDispathToProps = (dispatch) => {
     hanleMouseLeave() {
       dispatch(actionCreators.moueLeave());
     },
-
     handlePageChange(page, totalPage, spin, e) {
       e.nativeEvent.stopImmediatePropagation();
       if (spin) {
@@ -226,4 +255,4 @@ const mapDispathToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispathToProps)(Header);
+export default connect(mapStateToProps, mapDispathToProps)(withRouter(Header));

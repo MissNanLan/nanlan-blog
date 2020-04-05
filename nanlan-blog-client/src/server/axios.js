@@ -14,7 +14,7 @@ axios.interceptors.request.use((config) => {
   const userInfo = localStorage.getItem('userInfo');
   const _config = config;
   if (userInfo) {
-    _config.headers['x-token'] = JSON.parse(userInfo).token.data || {};
+    _config.headers['x-token'] = JSON.parse(userInfo).token || {};
   }
   return _config;
 });

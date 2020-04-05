@@ -9,8 +9,7 @@ const getArticleDetail = (prarms) => ({
 
 export const getDetail = (id) => {
   return (dispatch) => {
-    axios.post('/api/detail', { id }).then((res) => {
-      console.log(res);
+    axios.post('/api/article/detail', { id }).then((res) => {
       dispatch(
         getArticleDetail({
           content: res.data

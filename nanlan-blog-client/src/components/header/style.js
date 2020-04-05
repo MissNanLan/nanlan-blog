@@ -11,7 +11,6 @@ export const HeaderWrapper = styled.div`
 
 export const HeaderBox = styled.div`
   height: 60px;
-  /* line-height: 60px; */
   padding: 4px 40px;
   border-bottom: 1px solid #eee;
   display: flex;
@@ -43,7 +42,7 @@ export const Logo = styled.div`
 `;
 
 export const Addition = styled.div`
-  flex-basis: 20%;
+  flex-basis: 30%;
 `;
 
 export const Search = styled.div`

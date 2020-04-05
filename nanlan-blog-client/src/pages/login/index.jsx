@@ -1,52 +1,98 @@
+/* eslint-disable no-debugger */
+/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import { connect } from 'react-redux';
 import {
- LoginWrapper, Box, Title, Container, Input, Button
-} from './style';
+ Form, Input, Button, Icon, Divider
+} from 'antd';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import { LoginWrapper, LoginHeader, LoginContainer } from './style';
 import { actionCreators } from './store';
 
-class Login extends React.Component {
+class LoginForm extends React.Component {
+  login = () => {
+    const { form, dispatch} = this.props;
+    form.validateFields((err, filedsValue) => {
+      if (!err) {
+        const { account } = filedsValue;
+        const { password } = filedsValue;
+        dispatch(actionCreators.login(account, password));
+      }
+    });
+  }
+
   render() {
-    const {login} = this.props;
+    const { form } = this.props;
+    const { getFieldDecorator } = form;
     return (
       <LoginWrapper>
-        <Box>
-          <Title>登陆</Title>
-          <Container>
-            <Input
-              type="text"
-              placeholder="账号"
-              ref={(input) => {
-                this.account = input;
-              }}
-             />
-            <Input
-              type="password"
-              placeholder="密码"
-              ref={(input) => {
-                this.password = input;
-              }}
-             />
-            <Button
-              type="button"
-              onClick={() => login(this.account, this.password)}
-            >
-              登录
-            </Button>
-          </Container>
-        </Box>
+        <LoginHeader>
+          <div className="title">南蓝House</div>
+          <div className="subTitle">
+            In youth we learn , In age we understand
+          </div>
+        </LoginHeader>
+        <LoginContainer>
+          <div className="header">
+            <div className="title">登录</div>
+            <div className="subTitle">
+              还没有账号,去
+              <NavLink to="/regisiter">注册</NavLink>
+            </div>
+          </div>
+          <Divider />
+          <div className="box">
+            <Form>
+              <Form.Item label="用户名">
+                {getFieldDecorator('account', {
+                  rules: [
+                    {
+                      required: true,
+                      message: '请输入用户名'
+                    }
+                  ]
+                })(
+                  <Input
+                    placeholder="请输入你的用户名"
+                    onBlur={this.handleCheckSameName}
+                  />
+                )}
+              </Form.Item>
+
+              <Form.Item label="密码">
+                {getFieldDecorator('password', {
+                  rules: [
+                    {
+                      required: true,
+                      message: '请输入密码'
+                    }
+                  ]
+                })(
+                  <Input.Password
+                    prefix={
+                      <Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />
+                    }
+                    placeholder="请输入密码"
+                  />
+                )}
+              </Form.Item>
+              <Form.Item>
+                <Button
+                  type="primary"
+                  onClick={this.login}
+                  className="login-form-button"
+                >
+                  登录
+                </Button>
+              </Form.Item>
+            </Form>
+          </div>
+        </LoginContainer>
       </LoginWrapper>
     );
   }
 }
 
-const mapDispatch = (dispatch) => ({
-  login(account, password) {
-    dispatch(actionCreators.login(account.value, password.value));
-  }
-});
+const Login = Form.create({ name: 'login' })(LoginForm);
 
-export default connect(
-  null,
-  mapDispatch
-)(Login);
+export default connect()(Login);

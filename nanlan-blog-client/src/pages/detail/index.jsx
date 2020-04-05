@@ -15,11 +15,13 @@ import Comment from './component/comment';
 import Star from './component/star';
 import { actionCreators } from './store/index';
 
-class Detail extends React.PureComponent {
-  componentDidMount() {
-    const { getDetail, match } = this.props;
+class Detail extends React.Component {
+  constructor(props) {
+    super(props);
+    const { getDetail, match } = props;
     getDetail(match.params.id);
   }
+
 
   clickStar() {
     this.isClickStar = !this.isClickStar;
@@ -39,7 +41,7 @@ class Detail extends React.PureComponent {
     return (
       <div>
         <DetailSide>
-          <Star detail={detail} />
+          <Star />
         </DetailSide>
         <DetailWrapper>
           <DetailLeft>

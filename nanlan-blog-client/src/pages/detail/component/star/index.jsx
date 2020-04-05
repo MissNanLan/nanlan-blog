@@ -1,13 +1,17 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-debugger */
 import React from 'react';
 import { message } from 'antd';
-import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+// import { withRouter } from 'react-router';
 import axios from 'axios';
 import { StarWrapper, StarBtn } from './style';
 import isLogin from '../../../../static/js/util';
 
 class Star extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       isClickStar: false
     };
@@ -22,9 +26,9 @@ class Star extends React.Component {
       const { history } = this.props;
       history.push('/login');
     } else {
+      const { detail } = this.props;
+      const articleId = detail._id;
       const { isClickStar } = this.state;
-      // const articleId = props.detail.id;
-      const articleId = '5dd0cf93e30bf81fe6e4610c';
       this.setState({
         isClickStar: !isClickStar
       });
@@ -36,13 +40,18 @@ class Star extends React.Component {
     }
   };
 
+  handleClickStar = () => {
+    window._.throttle(this.clickStar, 100, {
+      trailing: false
+    });
+  };
+
+
   render() {
-    console.log(this.props);
     const { detail } = this.props;
-    const { isClickStar } = this.state;
     return (
       <StarWrapper
-        className={isClickStar ? 'active' : ''}
+        className={this.state.isClickStar ? 'active' : ''}
         onClick={this.handleClickStar}
       >
         <StarBtn>
@@ -54,4 +63,12 @@ class Star extends React.Component {
   }
 }
 
-export default withRouter(Star);
+const mapProps = (props) => {
+  return {
+    detail: props.detail.get('content')
+  };
+};
+
+export default connect(mapProps)(Star);
+
+// export default withRouter(Star);

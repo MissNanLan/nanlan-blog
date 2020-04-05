@@ -3,6 +3,7 @@
 /webpack/**
 /scripts/**
 /api/promiseMiddleware.js
+/node_modules/**
 
 /src/serviceWorker.js
 src/setupProxy.js

@@ -6,10 +6,15 @@ const changeHomeData = (result) => ({
   articleList: result
 });
 
-export const getHomeInfo = () => {
+export const getHomeInfo = (params) => {
+  const _defaultParams = {
+    pageSize: 10,
+    pageNumber: 1
+  };
+  const _reqParmas = Object.assign(_defaultParams, params);
   return (dispatch) => {
     axios
-      .post('/api/article', { pageSize: 10, pageNumber: 1 })
+      .post('/api/article/list', _reqParmas)
       .then((res) => {
         dispatch(changeHomeData(res.data));
       });

@@ -19,8 +19,6 @@ import { actionCreators } from '../../pages/home/store';
 class List extends React.PureComponent {
   render() {
     const { list } = this.props;
-    console.log(list);
-    debugger;
     return (
       <ArticleList>
         { list.map((item) => {
@@ -83,6 +81,7 @@ const mapDispatch = (dispatch) => {
     handleReadMore(currentPage, totalPage) {
       if (currentPage < totalPage) {
         dispatch(actionCreators.pageChange(currentPage + 1));
+        dispatch(actionCreators.getHomeInfo({pageNumber: currentPage + 1}));
         return null;
       }
       return <div>没有更多了</div>;

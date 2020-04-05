@@ -63,7 +63,11 @@ const mapProps = (props) => {
 const mapDispatch = (dispatch) => {
   return {
     changeHomeData() {
-      dispatch(actionCreators.getHomeInfo());
+      const reqParams = {
+        pageSize: 10,
+        pageNumber: 1
+      };
+      dispatch(actionCreators.getHomeInfo(reqParams));
     },
     changeBackTopShow() {
       if (document.documentElement.scrollTop > 400) {

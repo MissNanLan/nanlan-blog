@@ -12,6 +12,8 @@ import Home from './pages/home';
 import Note from './pages/note';
 import Login from './pages/login';
 import Detail from './pages/detail';
+import Regisiter from './pages/regisiter';
+import Compose from './pages/compose';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Router>
           <Switch>
             <Route path="/login" component={Login} />
+            <Route path="/regisiter" component={Regisiter} />
+            <Route path="/compose" component={Compose} />
             <Route
               path="/"
               render={() => (
