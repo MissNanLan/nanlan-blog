@@ -1,5 +1,4 @@
 const articleDao = require("../models/article");
-const behaviorDao = require("../models/behavior");
 
 async function articleService(params) {
   return new Promise((resolve, reject) => {
@@ -24,31 +23,19 @@ async function detailService(params) {
   }).lean()
 }
 
-async function insertArticleService() {
-  return new Promise((resolve, reject) => {
-    let articleList = [];
-    for (let i = 0; i < 100; i++) {
-      let list = new Article({
-        title: i + "Hello mongoose",
-        abstract: "点点滴滴",
-        content: "",
-        date: new Date(),
-        user_id: "",
-        like_count: Math.floor(Math.random() * 100),
-        comment_count: Math.floor(Math.random() * 50),
-        view_count: Math.floor(Math.random() * 1000),
-        images: ""
-      });
-      articleList.push(list);
+async function insertArticleService(params) {
+  await new articleDao({
+    ...params,
+    user_id: "", 
+    like_count: 0, 
+    comment_count: 0, 
+    view_count: 0, 
+  }).save('', (err, res) => { 
+    if (err) {
+    } else { 
+      return "新增成功"
     }
-    Article.insertMany(articleList, function(err, res) {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(res);
-      }
-    });
-  });
+  })
 }
 
 module.exports = {

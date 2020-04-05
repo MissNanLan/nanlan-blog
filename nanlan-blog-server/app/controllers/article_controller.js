@@ -1,8 +1,12 @@
+const moment = require('moment');
 const ArticleService = require("./../service/article_service");
 const BehaviorService = require("./../service/behavior_service");
 const Response = require("./../utils/response");
 
-const article = async (ctx, next) => {
+
+
+// 查询文章
+const articleList = async (ctx, next) => {
   let req = ctx.request.body;
   let params = {
     pageSize: req.pageSize,
@@ -13,7 +17,8 @@ const article = async (ctx, next) => {
   ctx.body = Response.success(res);
 };
 
-const detail = async (ctx, next) => {
+// 文章详情
+const articleDetail = async (ctx, next) => {
   let req = ctx.request.body;
   let params = {
     id: req.id
@@ -24,7 +29,6 @@ const detail = async (ctx, next) => {
   if (loginInfo && loginInfo.loginUser) {
     userId = loginInfo.loginUser.userId;
   }
-  console.log(loginInfo)
   let article = await ArticleService.detailService(params);
   article["starStatus"] = false;
   if (userId != 0 && article) {
@@ -37,14 +41,18 @@ const detail = async (ctx, next) => {
   ctx.body = Response.success(article);
 };
 
-const insertArticle = async (ctx, next) => {
-  const req = ctx.request.body;
-  const res = await ArticleService.insertArticleService();
-  ctx.body = Response.success(res);
+//  新增文章
+const articleInsert = async (ctx, next) => {
+  let params = {
+    ...ctx.request.body,
+    date: moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
+  }
+  const res = await ArticleService.insertArticleService(params);
+  ctx.body = Response.success("",res);
 };
 
 module.exports = {
-  article,
-  detail,
-  insertArticle
+  articleList,
+  articleDetail,
+  articleInsert
 };

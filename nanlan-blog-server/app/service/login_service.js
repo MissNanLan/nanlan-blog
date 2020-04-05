@@ -1,4 +1,4 @@
-const Login = require("../models/login");
+const loginDao = require("../models/user");
 const fs = require("fs");
 const path = require("path");
 const cert = fs.readFileSync(path.join(__dirname, "../rsa-prv.pem"));
@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 async function loginService(params) {
   let token;
   return new Promise((resolve, reject) => {
-    Login.find({ name: params.username }).exec(function(err, res) {
+    loginDao.find({ name: params.username }).exec(function(err, res) {
       var dbUser = res[0];
       if (err) {
         reject(err);

@@ -4,6 +4,7 @@ const articleSchema = new mongoose.Schema({
     abstract: String, 
     content: String, 
     date: Date, 
+    categrory: Array,
     user_id: String, 
     like_count: Number, 
     comment_count: Number, 

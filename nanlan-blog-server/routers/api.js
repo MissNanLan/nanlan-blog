@@ -6,15 +6,18 @@ const router = require("koa-router")();
 const exampleController = require("../app/controllers/example_controller");
 const articleController = require("../app/controllers/article_controller");
 const loginController = require("../app/controllers/login_controller");
+const regisiterController = require("../app/controllers/regisiter_controller");
 const behaviorController = require("../app/controllers/behavior_controller");
+
 
 const routers = router
   .post("/example", exampleController.listExample)
   .post("/login", loginController.login)
+  .post("/regisiter", regisiterController.regisiter)
 
-  .post("/article", articleController.article)
-  .post("/detail", articleController.detail)
-  .post("/insertArticle", articleController.insertArticle)
+  .post("/article/list", articleController.articleList)
+  .post("/article/detail", articleController.articleDetail)
+  .post("/article/insert", articleController.articleInsert)
 
   .post("/article/:articleId/star", behaviorController.star)
   .delete("/article/:articleId/star", behaviorController.cancelStar);

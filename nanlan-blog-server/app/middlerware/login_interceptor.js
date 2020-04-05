@@ -1,7 +1,7 @@
 const Response = require("./../utils/response");
 const LoginService = require("./../service/login_service");
 
-const allowUrl = ["/home", "/api/login", "/api/article", "/api/detail"];
+const allowUrl = ["/home", "/api/login", "/api/article/list", "/api/article/detail","/api/regisiter","/api/article/insert"];
 
 async function loginFilter(ctx, next) {
   let url = ctx.originalUrl;
