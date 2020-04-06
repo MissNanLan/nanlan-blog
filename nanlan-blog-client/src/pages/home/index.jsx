@@ -9,6 +9,12 @@ import List from '../../components/list';
 import { actionCreators } from './store';
 
 class Home extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.handleScrollTop = this.handleScrollTop.bind(this);
+  // }
+
+
   componentDidMount() {
     const { changeHomeData } = this.props;
     changeHomeData();
@@ -21,7 +27,8 @@ class Home extends React.Component {
   }
 
   handleScrollTop() {
-    this.scrollTo(0, 0);
+    console.log(this);
+    window.scrollTo(0, 0);
   }
 
   backTop() {
