@@ -20,7 +20,7 @@ export const OperationItem = styled.div`
         padding-left: 4px;
       }
       &:hover {
-        color: #dd226d;
+        color: #86b7b2;
       }
     }
   }

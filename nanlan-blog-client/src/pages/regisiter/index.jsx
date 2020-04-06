@@ -192,6 +192,7 @@ class RegisterForm extends React.Component {
                   type="primary"
                   htmlType="submit"
                   className="regisiter-form-button"
+                  block
                 >
                   注册
                 </Button>

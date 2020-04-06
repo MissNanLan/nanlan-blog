@@ -153,8 +153,8 @@ export const AdditionItem = styled.div`
   height: 38px;
   text-align: center;
   border-radius: 19px;
-  border: 1px solid #ec6149;
-  color: #ec6149;
+  border: 1px solid #86b7b2;
+  color: #86b7b2;
   float: left;
   margin-left: 10px;
   &.loginBtn {

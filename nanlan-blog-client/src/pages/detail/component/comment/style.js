@@ -23,8 +23,8 @@ export const CommentBtn = styled.div`
   align-self: flex-end;
   .button {
     color: #fff;
-    background-color: #dd226d;
-    border-color: #dd226d;
+    background-color: #86b7b2;
+    border-color: #86b7b2;
     padding: 4px 12px;
     margin-left: 10px;
     border-radius: 14px;

@@ -5,8 +5,9 @@ export const ArticleList = styled.div`
     font-size: 18px;
     line-height: 22px;
     font-weight: bold;
+    color: #333;
     &:hover {
-      color: #dd226d;
+      color: #86b7b2;
     }
   }
 
@@ -14,6 +15,7 @@ export const ArticleList = styled.div`
     margin: 6px 0 0 0;
     font-size: 12px;
     line-height: 22px;
+    color: #999;
   }
 `;
 
@@ -35,6 +37,7 @@ export const ArticleLeft = styled.div`
     height: 145px;
   }
 `;
+
 export const ArticleRight = styled.div`
   margin-left: 10px;
 `;
@@ -44,20 +47,21 @@ export const ArticleOperation = styled.div`
   border-top: 1px solid #f3f3f3;
   font-size: 12px;
   display: flex;
+  color: #999;
   .more {
     margin-left: auto;
     .arrow {
       font-size: 8px;
     }
     &:hover {
-      color: #dd226d;
+      color: #86b7b2;
     }
   }
 `;
 
 export const ReadMore = styled.div`
   border-radius: 20px;
-  background-color: #a5a5a5;
+  background-color: ${(props) => (props.currentPage > props.totalPage ? '#a5a5a5' : '#86b7b2')};
   margin: 30px auto 60px;
   padding: 10px 15px;
   text-align: center;
@@ -66,7 +70,7 @@ export const ReadMore = styled.div`
 `;
 
 export const NotAnyMore = styled.div`
-    text-align: center;
-    padding: 10px 0;
-    font-size: 16px;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
 `;

@@ -13,12 +13,7 @@ const defaultState = fromJS({
 export default (state = defaultState, action) => {
   switch (action.type) {
     case 'change_home_data':
-      return state.merge({
-        bannerList: action.bannerList,
-        isSkeletonLoading: action.isSkeletonLoading,
-        articleList: state.get('articleList').concat(action.articleList),
-        currentPage: action.currentPage
-      });
+      return state.merge({ ...action });
     case 'change_back_show':
       return state.set('isArriveBottom', action.isArriveBottom);
     default:

@@ -21,7 +21,7 @@ class List extends React.PureComponent {
   render() {
     const {
  list, isSkeletonLoading, handleReadMore, currentPage, totalPage
-} = this.props;
+    } = this.props;
     return (
       <div>
         <ArticleList>
@@ -63,8 +63,10 @@ class List extends React.PureComponent {
             );
           })}
           <ReadMore
+            currentPage={currentPage}
+            totalPage={totalPage}
             onClick={() => {
-              handleReadMore(currentPage, totalPage);
+              handleReadMore(currentPage, totalPage, list);
             }}
           >
             阅读更多
@@ -88,9 +90,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    handleReadMore(currentPage, totalPage) {
+    handleReadMore(currentPage, totalPage, list) {
       if (currentPage <= totalPage) {
-        dispatch(actionCreators.getHomeInfo({ pageNumber: currentPage + 1}));
+        dispatch(actionCreators.getHomeInfo({ pageNumber: currentPage + 1, list}));
         return '';
       }
       return 'notAnyMore';

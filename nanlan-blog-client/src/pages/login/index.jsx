@@ -81,6 +81,7 @@ class LoginForm extends React.Component {
                   type="primary"
                   onClick={this.login}
                   className="login-form-button"
+                  block
                 >
                   登录
                 </Button>

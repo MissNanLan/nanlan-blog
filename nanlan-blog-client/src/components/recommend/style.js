@@ -10,7 +10,7 @@ export const RecommendWrapper = styled.div`
 `;
 
 export const RecommendTitle = styled.div`
-  border-left: 4px solid #dd226d;
+  border-left: 4px solid #86b7b2;
   padding-left: 6px;
 `;
 
@@ -37,6 +37,6 @@ export const RecommendContentItem = styled.div`
     border: bone;
   }
   &:hover {
-    color: #dd226d;
+    color: #86b7b2;
   }
 `;

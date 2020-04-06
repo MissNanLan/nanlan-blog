@@ -155,7 +155,7 @@ class Header extends React.Component {
                   key={item.path}
                   activeStyle={{
                     fontWeight: 'bold',
-                    color: '#ec6149'
+                    color: '#86b7b2'
                   }}
                   className="navItem"
                 >

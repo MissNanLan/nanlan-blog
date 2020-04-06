@@ -4,11 +4,11 @@ export const StarWrapper = styled.div`
   cursor: pointer;
   &.active {
     .iconfont {
-      background-color: #dd226d;
+      background-color: #86b7b2;
       color: #fff;
     }
     span {
-      color: #dd226d;
+      color: #86b7b2;
     }
   }
 `;

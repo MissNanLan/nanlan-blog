@@ -47,7 +47,7 @@ class Detail extends React.Component {
           <DetailLeft>
             <Header>{detail.title}</Header>
             <Operation data={commentObj} />
-            <Content>{detail.content}</Content>
+            <Content dangerouslySetInnerHTML={{ __html: detail.content }} />
           </DetailLeft>
           <DetailRight>
             <Recommend />

@@ -3,23 +3,30 @@ import axios from '../../../server/axios';
 const changeHomeData = (result) => ({
   type: 'change_home_data',
   bannerList: '',
-  articleList: result.articleList,
-  isSkeletonLoading: result.isSkeletonLoading,
-  currentPage: result.currentPage || 1
+  articleList: result.articleList || [],
+  isSkeletonLoading: result.isSkeletonLoading || false,
+  currentPage: result.currentPage || 1,
+  amount: result.amount, // 总条数
+  totalPage: result.totalPage, // 总页数
 });
 
 export const getHomeInfo = (params) => {
-  const _defaultParams = {
+  const _reqParmas = {
     pageSize: 10,
-    pageNumber: 1,
+    pageNumber: params.pageNumber,
   };
-  const _reqParmas = Object.assign(_defaultParams, params);
-  console.log(_reqParmas);
   return (dispatch) => {
-    dispatch(changeHomeData({ articleList: [], isSkeletonLoading: true, currentPage: _reqParmas.pageNumber}));
+    dispatch(changeHomeData({ isSkeletonLoading: true }));
     axios.post('/api/article/list', _reqParmas).then((res) => {
+      const _articleList = params.list.concat(res.data.result);
       dispatch(
-        changeHomeData({ articleList: res.data, isSkeletonLoading: false, currentPage: _reqParmas.pageNumber})
+        changeHomeData({
+          articleList: _articleList,
+          isSkeletonLoading: false,
+          currentPage: _reqParmas.pageNumber,
+          amount: res.data.amount,
+          totalPage: res.data.totalPage
+          })
       );
     });
   };
