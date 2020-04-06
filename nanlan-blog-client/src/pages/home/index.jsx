@@ -10,13 +10,13 @@ import { actionCreators } from './store';
 
 class Home extends React.Component {
   componentDidMount() {
-    const {changeHomeData} = this.props;
+    const { changeHomeData } = this.props;
     changeHomeData();
     this.backTop();
   }
 
   componentWillUnmount() {
-    const {changeBackTopShow} = this.props;
+    const { changeBackTopShow } = this.props;
     window.removeEventListener('scroll', changeBackTopShow);
   }
 
@@ -25,7 +25,7 @@ class Home extends React.Component {
   }
 
   backTop() {
-    const {changeBackTopShow} = this.props;
+    const { changeBackTopShow } = this.props;
     window.addEventListener('scroll', changeBackTopShow);
   }
 

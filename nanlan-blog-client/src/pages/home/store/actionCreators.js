@@ -3,30 +3,29 @@ import axios from '../../../server/axios';
 const changeHomeData = (result) => ({
   type: 'change_home_data',
   bannerList: '',
-  articleList: result
+  articleList: result.articleList,
+  isSkeletonLoading: result.isSkeletonLoading,
+  currentPage: result.currentPage || 1
 });
 
 export const getHomeInfo = (params) => {
   const _defaultParams = {
     pageSize: 10,
-    pageNumber: 1
+    pageNumber: 1,
   };
   const _reqParmas = Object.assign(_defaultParams, params);
+  console.log(_reqParmas);
   return (dispatch) => {
-    axios
-      .post('/api/article/list', _reqParmas)
-      .then((res) => {
-        dispatch(changeHomeData(res.data));
-      });
+    dispatch(changeHomeData({ articleList: [], isSkeletonLoading: true, currentPage: _reqParmas.pageNumber}));
+    axios.post('/api/article/list', _reqParmas).then((res) => {
+      dispatch(
+        changeHomeData({ articleList: res.data, isSkeletonLoading: false, currentPage: _reqParmas.pageNumber})
+      );
+    });
   };
 };
 
 export const toggleBackTopShow = (params) => ({
   type: 'change_back_show',
-  isArriveBottom: params
-});
-
-export const pageChange = (params) => ({
-  type: 'page_change',
-  currentPage: params
+  isArriveBottom: params,
 });

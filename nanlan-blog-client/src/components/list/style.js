@@ -64,3 +64,9 @@ export const ReadMore = styled.div`
   font-size: 15px;
   color: #fff;
 `;
+
+export const NotAnyMore = styled.div`
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+`;
