@@ -1,13 +1,12 @@
 const articleDao = require("../models/article");
 async function articleService(params) {
   return new Promise((resolve, reject) => {
-    const reg = new RegExp(params.keyword, "i");
-
+    const reg = new RegExp(`${params.keyword}`, "i");
     var query = articleDao;
-    query.estimatedDocumentCount({ title: reg }, function (err, total) {
-      console.log(total);
+    query.estimatedDocumentCount({ title: reg}, function (err, total) {
+      console.log(reg);
       query
-        .find({ title: reg })
+        .find({ title: reg})
         .skip((params.pageNumber - 1) * params.pageSize)
         .limit(params.pageSize)
         .exec(function (err, res) {
