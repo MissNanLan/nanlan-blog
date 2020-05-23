@@ -12,11 +12,8 @@ moment.locale('zh-cn');
 process.env.NODE_ENV === "production" && Sentry.init({
     release: 'v1.0.6',
     dsn: 'https://f36c12db53d94e21b3eeecdf890dfcc4@o384506.ingest.sentry.io/5227797',
+    environment: 'staging',
     debug: true,
-    // beforeBreadcrumb(breadcrumb, hint) {
-    //     console.log(breadcrumb)
-    //     return breadcrumb.category === 'ui.click' ? null : breadcrumb;
-    //   },
 });
 
 Sentry.configureScope((scope) => {
