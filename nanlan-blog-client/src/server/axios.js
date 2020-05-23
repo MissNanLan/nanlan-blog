@@ -1,6 +1,7 @@
 import axios from 'axios';
 // import qs from 'qs';
 import { message } from 'antd';
+import * as Sentry from '@sentry/browser';
 // import store from '../store';
 
 /**
@@ -20,6 +21,8 @@ axios.interceptors.request.use((config) => {
 });
 
 axios.interceptors.response.use((response) => {
+  console.log(111);
+  console.log(response);
   const { status } = response;
   if (status >= 400 && status < 500) {
     switch (status) {
@@ -32,6 +35,12 @@ axios.interceptors.response.use((response) => {
       default:
     }
   } else if (status >= 500) {
+    Sentry.configureScope((scope) => {
+      console.log(scope);
+      scope.setUser({ name: JSON.parse(localStorage.getItem('account')) });
+      scope.setExtra({ requestData: JSON.parse(response.config.data) });
+      scope.setExtra({ responseData: JSON.parse(response.data)});
+    });
     // message.error(status+"服务器错误")
   } else {
     return response.data;

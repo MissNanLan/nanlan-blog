@@ -8,10 +8,14 @@ import {
  NavLink,
   withRouter
 } from 'react-router-dom';
-import { Menu, Dropdown, Icon } from 'antd';
+import {
+  Menu,
+  Dropdown,
+  Icon,
+  Button
+} from 'antd';
 import { actionCreators } from './store';
 import { IconfontStyle } from '../../static/font/iconfont';
-
 import {
   HeaderWrapper,
   HeaderBox,
@@ -116,6 +120,15 @@ class Header extends React.Component {
     return null;
   };
 
+  handleClick = () => {
+    const a = {};
+    // 此处同样会报错
+    console.log(a.name.name);
+    // 抛出错误
+    const err = new Error('抛出错误');
+    console.log(err);
+  }
+
   render() {
     const {
         focused, handleInputBlur, handleInputFocus, list
@@ -202,6 +215,7 @@ class Header extends React.Component {
               <AdditionItem>注册</AdditionItem>
             </NavLink>
           </Addition>
+          <Button onClick={this.handleClick}>dddd</Button>
         </HeaderBox>
       </HeaderWrapper>
     );
