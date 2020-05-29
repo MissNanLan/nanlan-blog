@@ -8,19 +8,19 @@ import lodash from 'lodash';
 import * as Sentry from '@sentry/browser';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
+
 moment.locale('zh-cn');
-process.env.NODE_ENV === "production" && Sentry.init({
-    release: 'v1.0.6',
+
+Sentry.init({
+    release: 'v1.0.9', // 应该可以动态设置
     dsn: 'https://f36c12db53d94e21b3eeecdf890dfcc4@o384506.ingest.sentry.io/5227797',
     environment: 'staging',
     debug: true,
 });
 
 Sentry.configureScope((scope) => {
-    scope.setUser({"email": "john.doe@example.com"});
-    scope.setTag({api: 'info'});
-  });
-
+    scope.setUser({email: 'nanlan.yj@foxmail.com'});
+});
 // throw new Error('这是一个错误');
 window._ = lodash;
 ReactDOM.render(<App />, document.getElementById('root'));
