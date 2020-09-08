@@ -34,7 +34,6 @@ import {
   SearchInfoItem
 } from './style';
 
-
 class Header extends React.Component {
   menu = () => {
     return (

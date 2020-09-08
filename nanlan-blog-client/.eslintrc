@@ -28,7 +28,8 @@
       "prefer-template": 0,
       "import/no-unresolved": 0,
       "global-require": 0,
-      "no-underscore-dangle": 0
+      "no-underscore-dangle": 0,
+      "camelcase": "off"
     },
     "plugins": [
       "react",

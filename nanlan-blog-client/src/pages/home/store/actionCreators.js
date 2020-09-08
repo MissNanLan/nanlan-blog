@@ -28,6 +28,8 @@ export const getHomeInfo = (params) => {
           totalPage: res.data.totalPage
           })
       );
+    }).catch((err) => {
+      console.log(err);
     });
   };
 };

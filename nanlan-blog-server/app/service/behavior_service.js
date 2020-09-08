@@ -14,7 +14,7 @@ async function star(articleId, userId, isStar = true) {
   let starBehavior = await behaviorDao.findOne({
     article_id: articleId,
     user_id: userId,
-    type: "star"
+    type: "star",
   });
   // 是点赞行为 且未点赞,新增
   if (isStar && !starBehavior) {
@@ -23,7 +23,7 @@ async function star(articleId, userId, isStar = true) {
       article_id: articleId,
       user_id: userId,
       type: "star",
-      status: true
+      status: true,
     });
     await newBehavior.save();
     //  更新文章点赞数量
@@ -63,22 +63,22 @@ async function updateArticleStarCount(article, count) {
   article.like_count = article.like_count + count;
   await articleDao.updateOne(article);
 }
-async function findUserStarStatusToPost(postId,userId) {
+async function findUserStarStatusToPost(postId, userId) {
   if (userId) {
-   let startBe = await behaviorDao.findOne({
-     article_id: postId,
-     user_id: userId,
-     type: "star",
-     status:true
-   });
-   if (startBe) {
-     return true
-   }
-   return false
- }
+    let startBe = await behaviorDao.findOne({
+      article_id: postId,
+      user_id: userId,
+      type: "star",
+      status: true,
+    });
+    if (startBe) {
+      return true;
+    }
+    return false;
+  }
 }
 
 module.exports = {
   star,
-  findUserStarStatusToPost
+  findUserStarStatusToPost,
 };

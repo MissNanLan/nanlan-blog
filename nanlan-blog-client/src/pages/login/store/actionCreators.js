@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const changeLogin = (params) => ({
   type: 'login/commit_login',
   token: params.token,

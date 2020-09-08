@@ -13,8 +13,6 @@ class Home extends React.Component {
   //   super(props);
   //   this.handleScrollTop = this.handleScrollTop.bind(this);
   // }
-
-
   componentDidMount() {
     const { changeHomeData } = this.props;
     changeHomeData();

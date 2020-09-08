@@ -28,7 +28,6 @@ const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
 const postcssNormalize = require("postcss-normalize");
 
 const appPackageJson = require(paths.appPackageJson);
-// const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 
 
 
@@ -321,12 +320,6 @@ module.exports = function (webpackEnv) {
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
         new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-        // new SentryWebpackPlugin({
-        //   include: '../build/static/js',
-        //   ignoreFile: '.sentrycliignore',
-        //   ignore: ['node_modules', 'webpack.config.js'],
-        //   configFile: 'sentry.properties'
-        // })
       ],
     },
     resolveLoader: {

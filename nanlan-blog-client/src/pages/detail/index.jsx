@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import { connect } from 'react-redux';
 import {
@@ -22,26 +23,26 @@ class Detail extends React.Component {
     getDetail(match.params.id);
   }
 
-
   clickStar() {
     this.isClickStar = !this.isClickStar;
   }
 
   render() {
-    const { detail } = this.props;
+    const { detail, histroy } = this.props;
     const {
-      likeCount, commentCount, date, viewCount
+      like_count, view_count, date, comment_count
     } = detail;
+
     const commentObj = {
-      likeCount,
-      commentCount,
+      like_count,
+      view_count,
       date,
-      viewCount
+      comment_count
     };
     return (
       <div>
         <DetailSide>
-          <Star />
+          <Star history={histroy} detail={detail} />
         </DetailSide>
         <DetailWrapper>
           <DetailLeft>

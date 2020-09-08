@@ -68,7 +68,6 @@ const categoryParams = [
   }
 ];
 
-
 BraftEditor.use([Markdown(), CodeHighlighter(highlighterOptions)]);
 
 class ComposeForm extends React.Component {
