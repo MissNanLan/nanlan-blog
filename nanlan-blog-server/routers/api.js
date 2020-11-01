@@ -19,6 +19,6 @@ const routers = router
   .post("/article/detail", articleController.articleDetail)
   .post("/article/insert", articleController.articleInsert)
 
-  .post("/article/:articleId/star", behaviorController.star)
+  .post("/article/star", behaviorController.star)
   .delete("/article/:articleId/star", behaviorController.cancelStar);
 module.exports = routers;

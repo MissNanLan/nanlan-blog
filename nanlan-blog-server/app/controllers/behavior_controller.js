@@ -8,9 +8,9 @@ const response = require("./../utils/response");
  */
 const star = async (ctx, next) => {
   const userId = ctx.request.query.loginUser.userId;
-  const { articleId } = ctx.params;
-
+  const { articleId } = ctx.request.body;
   let res = await behavior.star(articleId, userId);
+  console.log("res", res);
   ctx.body = response.success(res);
 };
 /**
@@ -19,13 +19,12 @@ const star = async (ctx, next) => {
  * @param {*} next
  */
 const cancelStar = async (ctx, next) => {
-  let userId = ctx.request.query.loginUser.userId;
+  const userId = ctx.request.query.loginUser.userId;
   const articleId = ctx.params.articleId;
-
   let res = await behavior.star(articleId, userId, false);
   ctx.body = response.success(res);
 };
 module.exports = {
   star,
-  cancelStar
+  cancelStar,
 };

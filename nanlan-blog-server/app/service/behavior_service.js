@@ -28,14 +28,18 @@ async function star(articleId, userId, isStar = true) {
     await newBehavior.save();
     //  更新文章点赞数量
     updateArticleStarCount(article, 1);
-    return starBehavior.status;
+    return { like_count: article.like_count };
   } else {
     // 是点赞
     if (isStar) {
       // 之前记录为取消赞状态,更新为点赞状态
       if (!starBehavior.status) {
         starBehavior.status = true;
-        await doUpdate(starBehavior);
+        await behaviorDao.updateOne(
+          { article_id: starBehavior.article_id },
+          { status: starBehavior.status }
+        );
+        // await doUpdate(starBehavior);
         //  更新文章点赞数量
         updateArticleStarCount(article, 1);
       }
@@ -44,15 +48,15 @@ async function star(articleId, userId, isStar = true) {
       //之前记录为点赞状态,更新为取消点赞状态
       if (starBehavior.status) {
         starBehavior.status = false;
-        await doUpdate(starBehavior);
+        await behaviorDao.updateOne(
+          { article_id: starBehavior.article_id },
+          { status: starBehavior.status }
+        );
         updateArticleStarCount(article, -1);
       }
     }
-    return starBehavior.status;
+    return { like_count: article.like_count };
   }
-}
-async function doUpdate(starBehavior) {
-  await behaviorDao.updateOne(starBehavior);
 }
 
 async function finArticle(articleId) {
@@ -63,6 +67,7 @@ async function updateArticleStarCount(article, count) {
   article.like_count = article.like_count + count;
   await articleDao.updateOne(article);
 }
+
 async function findUserStarStatusToPost(postId, userId) {
   if (userId) {
     let startBe = await behaviorDao.findOne({

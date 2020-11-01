@@ -30,9 +30,9 @@ const articleDetail = async (ctx, next) => {
     userId = loginInfo.loginUser.userId;
   }
   let article = await ArticleService.detailService(params);
-  article["starStatus"] = false;
+  article["star_status"] = false;
   if (userId != 0 && article) {
-    article["starStatus"] = await BehaviorService.findUserStarStatusToPost(
+    article["star_status"] = await BehaviorService.findUserStarStatusToPost(
       article._id,
       userId
     );
