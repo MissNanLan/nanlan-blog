@@ -1,31 +1,11 @@
 import axios from './axios';
 
-const star = (articleId) => {
-  axios
-    .post('/api/article/' + articleId + '/star', (res) => {
-      if (res.status) {
-        return res.data;
-      }
-      return res.data;
-    })
-    .catch((err) => {
-      console.log(err);
-      return err;
-    });
+const star = (payload) => {
+  return axios.post('/api/article/star', payload);
 };
 
-const cancelStar = (articleId) => {
-  axios
-    .delete('/api/article/' + articleId + '/star', (res) => {
-      if (res.status) {
-        return res.data;
-      }
-      return res.data;
-    })
-    .catch((err) => {
-      console.log(err);
-      return err;
-    });
+const cancelStar = (payload) => {
+  return axios.delete('/api/article/' + payload + '/star');
 };
 
 export { star, cancelStar };

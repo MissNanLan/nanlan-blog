@@ -5,7 +5,7 @@ import React from 'react';
 import { message } from 'antd';
 // import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { HeartOutlined } from '@ant-design/icons';
+import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { StarWrapper, StarBtn } from './style';
 import isLogin from '../../../../static/js/util';
 import server from '../../../../server';
@@ -13,16 +13,29 @@ import server from '../../../../server';
 class Star extends React.Component {
   constructor(props) {
     super(props);
-    console.log('child', this.props);
     this.state = {
       isClickStar: false,
+      like_count: 0,
+      star_status: true
     };
     this.handleClickStar = window._.throttle(this.clickStar, 100, {
       trailing: false,
     });
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.detail.like_count !== prevState.like_count) {
+      return {
+        like_count: nextProps.detail.like_count,
+        star_status: nextProps.detail.star_status,
+      };
+    }
+    // 否则，对于state不进行任何操作
+    return null;
+  }
+
   clickStar = () => {
+    // debugger;
     if (!isLogin) {
       message.warning('你还没有登录');
       const { history } = this.props;
@@ -35,13 +48,18 @@ class Star extends React.Component {
         isClickStar: !isClickStar,
       });
       if (!isClickStar) {
-        server.detailServer.star(articleId, () => {
-          //
+        // 点赞
+        server.detailServer.star({ articleId }).then((res) => {
+          this.setState({
+            like_count: res.data.like_count,
+          });
         });
-        // axios.post('/api/article/' + articleId + '/star').then(() => {});
       } else {
-        server.detailServer.cancelStar(articleId, () => {
-          //
+        // 取消点赞
+        server.detailServer.cancelStar(articleId).then((res) => {
+          this.setState({
+            like_count: res.data.like_count,
+          });
         });
       }
     }
@@ -54,28 +72,23 @@ class Star extends React.Component {
   };
 
   render() {
-    const { detail } = this.props;
+    console.log('state', this.state);
     return (
       <StarWrapper
         className={this.state.isClickStar ? 'active' : ''}
         onClick={this.handleClickStar}
       >
-        <StarBtn>
-          <HeartOutlined />
-          <span>{detail.like_count}</span>
+        <StarBtn primary>
+          {this.state.star_status ? (
+            <HeartFilled style={{ fontSize: '26px', color: '#86b7b2' }} />
+          ) : (
+            <HeartOutlined />
+          )}
+          <div>{this.state.like_count}</div>
         </StarBtn>
       </StarWrapper>
     );
   }
 }
-
-// const mapProps = (props) => {
-//   return {
-//     detail: props.detail.get('content'),
-//     history: props.history
-//   };
-// };
-
-// export default connect(mapProps)(Star);
 
 export default withRouter(Star);

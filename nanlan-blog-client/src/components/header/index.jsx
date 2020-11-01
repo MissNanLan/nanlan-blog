@@ -136,19 +136,19 @@ class Header extends React.Component {
     const navList = [
       {
         navName: '首页',
-        path: 'home'
+        path: '/home'
       },
       {
         navName: '笔记',
-        path: 'note'
+        path: '/note'
       },
       {
         navName: '随笔',
-        path: 'essay'
+        path: '/essay'
       },
       {
         navName: '摄影',
-        path: 'photography'
+        path: '/photography'
       }
     ];
 
