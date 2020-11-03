@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Skeleton } from 'antd';
+import { Skeleton, Tag } from 'antd';
 import {
   ArticleList,
   ArticleItem,
@@ -27,8 +27,8 @@ class List extends React.PureComponent {
         <ArticleList>
           {list.map((item) => {
             const {
- like_count, comment_count, date, view_count
-} = item;
+               like_count, comment_count, date, view_count
+              } = item;
             const commentObj = {
               like_count,
               comment_count,
@@ -47,16 +47,15 @@ class List extends React.PureComponent {
                       />
                     </ArticleLeft>
                     <ArticleRight>
-                      <div className="title">{item.title}</div>
+                      <div className="title">
+                        {item.title}
+                        <Tag color="success">success</Tag>
+                      </div>
                       <p className="abstract">{item.abstract}</p>
                     </ArticleRight>
                   </ArticleContent>
                   <ArticleOperation>
                     <Opertaion data={commentObj} />
-                    <span className="more">
-                      阅读更多
-                      <span className="arrow iconfont">&#xe61b;</span>
-                    </span>
                   </ArticleOperation>
                 </ArticleItem>
               </Link>

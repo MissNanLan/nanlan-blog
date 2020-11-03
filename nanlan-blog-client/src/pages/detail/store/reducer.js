@@ -14,7 +14,7 @@ export default (state = defaultState, action) => {
         content: action.content,
       });
     case UPDATE_ARTICLE_DETAIL:
-      return state.setIn(['content', 'like_count'], action.content.value);
+      return state.setIn(['content'], action.content);
     default:
       return state;
   }

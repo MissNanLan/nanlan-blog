@@ -4,7 +4,7 @@
 import React from 'react';
 import { message } from 'antd';
 import { connect } from 'react-redux';
-// import { withRouter } from 'react-router';
+import { withRouter } from 'react-router';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 import { StarWrapper, StarBtn } from './style';
 import isLogin from '../../../../static/js/util';
@@ -36,16 +36,16 @@ class Star extends React.Component {
     return null;
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.detail.like_count !== prevState.like_count) {
-      Object.keys(this.state).forEach(() => {
-        this.setState({
-          like_count: prevProps.detail.like_count,
-          star_status: prevProps.detail.star_status,
-        });
-      });
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.detail.like_count !== prevState.like_count) {
+  //     Object.keys(this.state).forEach(() => {
+  //       this.setState({
+  //         like_count: prevProps.detail.like_count,
+  //         star_status: prevProps.detail.star_status,
+  //       });
+  //     });
+  //   }
+  // }
 
   clickStar = () => {
     if (!isLogin) {
@@ -64,14 +64,14 @@ class Star extends React.Component {
         server.detailServer
           .star({ articleId: '5e088eec2c5f1040b3f6cbea' })
           .then((res) => {
-            this.props.updateDetail(res.data.like_count);
+            this.props.updateDetail(res.data.like_count, true);
           });
       } else {
         // 取消点赞
         server.detailServer
           .cancelStar({ articleId: '5e088eec2c5f1040b3f6cbea' })
           .then((res) => {
-            this.props.updateDetail(res.data.like_count);
+            this.props.updateDetail(res.data.like_count, false);
           });
       }
     }
@@ -108,15 +108,15 @@ const mapProps = (props) => {
   };
 };
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = (dispatch, props) => {
   return {
-    updateDetail(params) {
-      dispatch(
-        actionCreators.updateDetail({ key: 'like_count', value: params })
-      );
+    updateDetail(likeCount, starStatus) {
+      const { detail } = props;
+      detail.like_count = likeCount;
+      detail.star_status = starStatus;
+      dispatch(actionCreators.updateDetail(detail));
     },
   };
 };
 
-export default connect(mapProps, mapDispatch)(Star);
-// export default withRouter(Star);
+export default withRouter(connect(mapProps, mapDispatch)(Star));
