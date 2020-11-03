@@ -4,7 +4,7 @@ import * as constants from './constants';
 
 const getArticleDetail = (prarms) => ({
   type: constants.GET_ARTICLE_DETAIL,
-  content: prarms.content
+  content: prarms.content,
 });
 
 export const getDetail = (id) => {
@@ -12,9 +12,18 @@ export const getDetail = (id) => {
     axios.post('/api/article/detail', { id }).then((res) => {
       dispatch(
         getArticleDetail({
-          content: res.data
+          content: res.data,
         })
       );
+    });
+  };
+};
+
+export const updateDetail = (content) => {
+  return (dispatch) => {
+    dispatch({
+      type: constants.UPDATE_ARTICLE_DETAIL,
+      content,
     });
   };
 };

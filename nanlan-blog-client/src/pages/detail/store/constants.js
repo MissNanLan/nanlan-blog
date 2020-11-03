@@ -1,3 +1,2 @@
 export const GET_ARTICLE_DETAIL = 'detail/getArticleDetail';
-
-export { GET_ARTICLE_DETAIL as default };
+export const UPDATE_ARTICLE_DETAIL = 'detail/updateArticleDetail';

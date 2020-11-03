@@ -1,18 +1,20 @@
 import { fromJS } from 'immutable';
-import * as constants from './constants';
+import { GET_ARTICLE_DETAIL, UPDATE_ARTICLE_DETAIL } from './constants';
 
 const defaultState = fromJS({
   title: '',
-  content: ''
+  content: '',
 });
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case constants.GET_ARTICLE_DETAIL:
+    case GET_ARTICLE_DETAIL:
       return state.merge({
         title: action.title,
-        content: action.content
+        content: action.content,
       });
+    case UPDATE_ARTICLE_DETAIL:
+      return state.setIn(['content', 'like_count'], action.content.value);
     default:
       return state;
   }

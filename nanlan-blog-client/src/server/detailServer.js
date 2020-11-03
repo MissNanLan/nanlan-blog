@@ -5,7 +5,7 @@ const star = (payload) => {
 };
 
 const cancelStar = (payload) => {
-  return axios.delete('/api/article/' + payload + '/star');
+  return axios.delete('/api/article/' + payload.articleId + '/star');
 };
 
 export { star, cancelStar };
