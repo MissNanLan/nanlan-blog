@@ -11,9 +11,9 @@ import {
 import {
   Menu,
   Dropdown,
-  Icon,
   Button
 } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 import { actionCreators } from './store';
 import { IconfontStyle } from '../../static/font/iconfont';
 import {
@@ -198,7 +198,8 @@ class Header extends React.Component {
                 <Dropdown overlay={this.menu()} trigger={['hover']}>
                   <span className="ant-dropdown-link">
                     {account}
-                    <Icon type="down" />
+                    <DownOutlined />
+                    {/* <Icon type="down" /> */}
                   </span>
                 </Dropdown>
               </AdditionItem>

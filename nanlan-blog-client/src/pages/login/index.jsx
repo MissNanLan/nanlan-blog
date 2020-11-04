@@ -1,29 +1,20 @@
-/* eslint-disable no-debugger */
-/* eslint-disable react/prefer-stateless-function */
-import React from 'react';
-import { connect } from 'react-redux';
-import {
- Form, Input, Button, Icon, Divider
-} from 'antd';
-import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import { LoginWrapper, LoginHeader, LoginContainer } from './style';
-import { actionCreators } from './store';
+/* eslint-disable  */
+import React from "react";
+import { connect } from "react-redux";
+import { Form, Input, Button, Divider } from "antd";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { LoginWrapper, LoginHeader, LoginContainer } from "./style";
+import { actionCreators } from "./store";
 
-class LoginForm extends React.Component {
-  login = () => {
-    const { form, dispatch} = this.props;
-    form.validateFields((err, filedsValue) => {
-      if (!err) {
-        const { account } = filedsValue;
-        const { password } = filedsValue;
-        dispatch(actionCreators.login(account, password));
-      }
-    });
-  }
+class Login extends React.Component {
+  login = (values) => {
+    const { dispatch } = this.props;
+    const { account, password } = values;
+    dispatch(actionCreators.login(account, password));
+  };
 
   render() {
-    const { form } = this.props;
-    const { getFieldDecorator } = form;
     return (
       <LoginWrapper>
         <LoginHeader>
@@ -42,44 +33,46 @@ class LoginForm extends React.Component {
           </div>
           <Divider />
           <div className="box">
-            <Form>
-              <Form.Item label="用户名">
-                {getFieldDecorator('account', {
-                  rules: [
-                    {
-                      required: true,
-                      message: '请输入用户名'
-                    }
-                  ]
-                })(
-                  <Input
-                    placeholder="请输入你的用户名"
-                    onBlur={this.handleCheckSameName}
-                  />
-                )}
+            <Form onFinish={this.login}>
+              <Form.Item
+                label="用户名"
+                name="account"
+                rules={[
+                  {
+                    required: true,
+                    message: "请输入用户名",
+                  },
+                ]}
+              >
+                <Input
+                  prefix={
+                    <UserOutlined className="site-form-item-icon"></UserOutlined>
+                  }
+                  placeholder="请输入你的用户名"
+                  // onBlur={this.handleCheckSameName}
+                />
               </Form.Item>
 
-              <Form.Item label="密码">
-                {getFieldDecorator('password', {
-                  rules: [
-                    {
-                      required: true,
-                      message: '请输入密码'
-                    }
-                  ]
-                })(
-                  <Input.Password
-                    prefix={
-                      <Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />
-                    }
-                    placeholder="请输入密码"
-                  />
-                )}
+              <Form.Item
+                name="password"
+                label="密码"
+                rules={[
+                  {
+                    required: true,
+                    message: "请输入密码",
+                  }
+                ]}
+              >
+                <Input.Password
+                  prefix={<LockOutlined className="site-form-item-icon" />}
+                  placeholder="请输入密码"
+                />
               </Form.Item>
+
               <Form.Item>
                 <Button
+                  htmlType="submit"
                   type="primary"
-                  onClick={this.login}
                   className="login-form-button"
                   block
                 >
@@ -93,7 +86,5 @@ class LoginForm extends React.Component {
     );
   }
 }
-
-const Login = Form.create({ name: 'login' })(LoginForm);
 
 export default connect()(Login);
