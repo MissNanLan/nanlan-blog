@@ -67,9 +67,9 @@ class Compose extends React.Component {
     super();
     this.state = {
       // 创建一个空的editorState作为初始值
-      editorState: BraftEditor.createEditorState(null),
+      editorState: BraftEditor.createEditorState("<p>Hello <b>World!</b></p>"),
       categoryNum: 0,
-      htmlConent: "",
+      htmlContent: "",
       category: [],
     };
   }
@@ -91,19 +91,14 @@ class Compose extends React.Component {
   };
 
   saveEditorContent = (values) => {
-    // const { form } = this.props;
-    // form.validateFields((err, filedsValue) => {
     const { htmlConent } = this.state;
-    console.log(htmlConent);
     const req = values;
-    // if (!err) {
+    console.warn("req", req);
     axios.post("/api/article/insert", req).then((res) => {
       if (res.status === 200) {
         this.showConfirm();
       }
     });
-    // }
-    // });
   };
 
   submitContent = () => {
@@ -112,7 +107,8 @@ class Compose extends React.Component {
     const { editorState } = this.state;
     const htmlContent = editorState.toHTML();
     this.setState({
-      htmlConent: htmlContent,
+      htmlContent: htmlContent,
+      editorState: editorState,
     });
   };
 
@@ -127,7 +123,10 @@ class Compose extends React.Component {
   };
 
   handleEditorChange = (editorState) => {
-    this.setState({ htmlConent: editorState.toHTML() });
+    this.setState({
+      htmlContent: editorState.toHTML(),
+      editorState: editorState,
+    });
   };
 
   preview = () => {
@@ -266,7 +265,7 @@ class Compose extends React.Component {
 
             <Form.Item
               label="文章正文"
-              name="htmlConent"
+              name="htmlContent"
               rules={[
                 {
                   required: true,
@@ -274,14 +273,12 @@ class Compose extends React.Component {
                 },
               ]}
             >
-              <div className="braft-content">
-                <BraftEditor
-                  controls={controls}
-                  onChange={this.handleEditorChange}
-                  className="my-editor"
-                  placeholder="请输入正文内容"
-                />
-              </div>
+              <BraftEditor
+                value={this.state.editorState}
+                onChange={this.handleEditorChange}
+                className="braft-content"
+                placeholder="请输入正文内容"
+              />
             </Form.Item>
 
             <Form.Item>

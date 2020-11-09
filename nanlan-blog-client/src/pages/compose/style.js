@@ -34,7 +34,7 @@ export const ComposeContent = styled.div`
     color: #9a9a9a;
   }
   .braft-content {
-    border: 1px solid #d1d1d1;
+    border: 1px solid #d9d9d9;
     border-radius: 5px;
   }
   .;
