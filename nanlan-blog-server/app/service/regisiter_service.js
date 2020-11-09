@@ -2,7 +2,7 @@ const regisiterDao = require("../models/user");
 
 
 async function regisiterService(params) { 
-    const user = await findUser(params.userName);
+    const user = await findUser(params.username);
     if (user) {
         return "存在同名的用户哦"
 
@@ -10,7 +10,7 @@ async function regisiterService(params) {
     } else { 
         // 新增用户
          new regisiterDao({
-            name: params.userName,
+            name: params.username,
              pwd: params.password
         }).save();
         return "新增成功"

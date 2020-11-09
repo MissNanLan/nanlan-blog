@@ -27,11 +27,11 @@ async function loginService(params) {
   });
 }
 
-function tokenGen(userId, userName) {
+function tokenGen(userId, username) {
   let date = Math.floor(Date.now() / 1000);
   let data = {
     userId: userId,
-    userName: userName
+    username: username
   };
   let token = jwt.sign({ data: data, exp: date + 3600 * 24 }, cert, {
     algorithm: "RS256"

@@ -4,7 +4,7 @@ const Response = require("./../utils/response");
 const regisiter = async (ctx, next) => {
   let req = ctx.request.body;
   let params = {
-    userName: req.userName,
+    username: req.username,
     password: req.password
   };
   let res = await RegisiterService.regisiterService(params);
