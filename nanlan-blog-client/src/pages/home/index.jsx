@@ -1,10 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
- HomeWrapper, HomeBox, HomeLeft, HomeRight, BackTop
+  HomeWrapper,
+  HomeBox,
+  HomeLeft,
+  HomeRight,
+  BackTop
 } from './style';
 import Banner from './component/Banner';
 import Recommend from '../../components/recommend';
+import Tag from '../../components/tag';
+import Category from '../../components/category';
+import Archives from '../../components/archives';
 import List from '../../components/list';
 import { actionCreators } from './store';
 
@@ -35,7 +42,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const {isArriveBottom} = this.props;
+    const { isArriveBottom } = this.props;
     return (
       <HomeWrapper>
         <Banner />
@@ -45,6 +52,9 @@ class Home extends React.Component {
           </HomeLeft>
           <HomeRight>
             <Recommend />
+            <Tag />
+            <Category />
+            <Archives />
           </HomeRight>
         </HomeBox>
         {isArriveBottom ? (
@@ -61,14 +71,14 @@ class Home extends React.Component {
 
 const mapProps = (props) => {
   return {
-    isArriveBottom: props.home.get('isArriveBottom')
+    isArriveBottom: props.home.get('isArriveBottom'),
   };
 };
 
 const mapDispatch = (dispatch) => {
   return {
     changeHomeData() {
-      dispatch(actionCreators.getHomeInfo({ pageNumber: 1, list: []}));
+      dispatch(actionCreators.getHomeInfo({ pageNumber: 1, list: [] }));
     },
     changeBackTopShow() {
       if (document.documentElement.scrollTop > 400) {
@@ -76,10 +86,7 @@ const mapDispatch = (dispatch) => {
       } else {
         dispatch(actionCreators.toggleBackTopShow(false));
       }
-    }
+    },
   };
 };
-export default connect(
-  mapProps,
-  mapDispatch
-)(Home);
+export default connect(mapProps, mapDispatch)(Home);

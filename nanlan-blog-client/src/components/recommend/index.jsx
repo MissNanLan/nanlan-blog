@@ -1,18 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import {
-  RecommendWrapper,
-  RecommendTitle,
-  RecommendContent,
-  RecommendContentItem
-} from './style';
+/* eslint-disable */
+import React from "react";
+import { Link } from "react-router-dom";
+import  RecommendContentItem  from "./style";
+import { Wrapper, Title, Content } from "../style";
 
 class Recommend extends React.PureComponent {
   render() {
     return (
-      <RecommendWrapper>
-        <RecommendTitle>推荐文章</RecommendTitle>
-        <RecommendContent>
+      <Wrapper>
+        <Title>推荐文章</Title>
+        <Content>
           <Link to="/detail/1">
             <RecommendContentItem>
               <span className="sousuo iconfont">&#xe62b;</span>
@@ -31,8 +28,8 @@ class Recommend extends React.PureComponent {
               </span>
             </RecommendContentItem>
           </Link>
-        </RecommendContent>
-      </RecommendWrapper>
+        </Content>
+      </Wrapper>
     );
   }
 }
