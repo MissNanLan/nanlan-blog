@@ -1,14 +1,18 @@
 /* eslint-disable */
 import React from "react";
 import { Link } from "react-router-dom";
-import  RecommendContentItem  from "./style";
+import { SignalFilled } from "@ant-design/icons";
+import { RecommendTitle, RecommendContentItem } from "./style";
 import { Wrapper, Title, Content } from "../style";
 
 class Recommend extends React.PureComponent {
   render() {
     return (
       <Wrapper>
-        <Title>推荐文章</Title>
+        <Title>
+          <SignalFilled style={{ fontSize: "16px" }} />
+          <RecommendTitle>推荐文章</RecommendTitle>
+        </Title>
         <Content>
           <Link to="/detail/1">
             <RecommendContentItem>

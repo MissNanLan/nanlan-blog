@@ -1,4 +1,11 @@
-import styled from 'styled-components';
+/* eslint-disable */
+import styled from "styled-components";
+
+export const RecommendTitle = styled.span`
+  font-weight: bold;
+  padding-left: 6px;
+  font-size: 16px;
+`;
 
 export const RecommendContentItem = styled.div`
   border-bottom: 1px dashed #b4afaf;
@@ -22,5 +29,3 @@ export const RecommendContentItem = styled.div`
     color: #86b7b2;
   }
 `;
-
-export default RecommendContentItem;

@@ -10,8 +10,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  border-left: 4px solid #86b7b2;
-  padding-left: 6px;
+  .label {
+    padding-left: 10px;
+  }
 `;
 
 export const Content = styled.div`

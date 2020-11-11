@@ -1,7 +1,9 @@
 /* eslint-disable  */
 import React from "react";
+import { TagFilled } from "@ant-design/icons";
 import { Wrapper, Title, Content } from "../style";
-import * as util from '../../utils'
+import { TagTitle, TagItem } from "./style";
+import * as util from "../../utils";
 function Tag() {
   const tagList = [
     {
@@ -58,25 +60,26 @@ function Tag() {
     },
   ];
 
-
-
   return (
     <Wrapper>
-      <Title>标签</Title>
+      <Title>
+        <TagFilled style={{ fontSize: "16px" }} />
+        <TagTitle>标签</TagTitle>
+      </Title>
       <Content>
-        {tagList.map((it) => {
+        {tagList.map((it, index) => {
           return (
-            <span
-              
-              style={{
-                color: util.randomColor(),
-                fontSize: util.randomFontSize() + "px",
-                display: "inline-block",
-                padding: "0 .1rem"
-              }}
-            >
-              {it.name}
-            </span>
+            <TagItem key={index}>
+              <span
+                className="tag"
+                style={{
+                  color: util.randomColor(),
+                  fontSize: util.randomFontSize() + "px",
+                }}
+              >
+                {it.name}
+              </span>
+            </TagItem>
           );
         })}
       </Content>

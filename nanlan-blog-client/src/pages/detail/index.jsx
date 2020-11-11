@@ -10,7 +10,7 @@ import {
   Header,
   Content
 } from './style';
-import Recommend from '../../components/recommend';
+import Recommend from '@/components/recommend';
 import Operation from '../../components/operation';
 import Comment from './component/comment';
 import Star from './component/star';
