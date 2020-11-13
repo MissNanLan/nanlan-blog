@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.less';
-import './theme.less'; // 用于覆盖上面定义的变量
 import lodash from 'lodash';
+import './theme.less'; // 用于覆盖上面定义的变量
+import './index.css';
 // import * as Sentry from '@sentry/browser';
 import * as serviceWorker from './serviceWorker';
 import App from './App';

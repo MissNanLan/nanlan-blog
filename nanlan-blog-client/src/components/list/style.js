@@ -1,9 +1,13 @@
-import styled from 'styled-components';
+/* eslint-disable */
+import styled from "styled-components";
 
 export const ArticleList = styled.div`
   .title {
-    font-size: 18px;
-    line-height: 22px;
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
+    font-size: 1.2rem;
+    line-height: 2.2rem;
     font-weight: bold;
     color: #333;
     &:hover {
@@ -12,46 +16,60 @@ export const ArticleList = styled.div`
   }
 
   .abstract {
-    margin: 6px 0 0 0;
-    font-size: 12px;
-    line-height: 22px;
+    margin: 0.6rem 0 0 0;
+    line-height: 2.2rem;
     color: #999;
   }
 `;
 
 export const ArticleItem = styled.div`
-  margin: 0 0 15px;
+  margin: 0 0 1.5rem;
   background-color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   border-radius: 0;
 `;
 
 export const ArticleContent = styled.div`
-  padding: 20px 15px 10px 15px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+  padding: 1rem 1rem 1.5rem;
   display: flex;
+  flex-direction: row;
 `;
 
 export const ArticleLeft = styled.div`
-  .images {
-    width: 240px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
     height: 145px;
+  }
+  width: 45%;
+  height: 145px;
+  .images {
+    width: 100%;
+    height: 100%;
+    transition: all 0.6s;
+    object-fit: cover;
   }
 `;
 
 export const ArticleRight = styled.div`
-  margin-left: 10px;
+  margin-left: 1rem;
+  @media screen and (max-width: 768px) {
+    padding: 1rem 1rem 1.5rem;
+  }
 `;
 
 export const ArticleOperation = styled.div`
-  padding: 8px 20px;
+  padding: 0.8rem 2rem;
   border-top: 1px solid #f3f3f3;
-  font-size: 12px;
+  font-size: 95%;
   display: flex;
   color: #999;
   .more {
     margin-left: auto;
     .arrow {
-      font-size: 8px;
+      font-size: 0.8rem;
     }
     &:hover {
       color: #86b7b2;
@@ -60,17 +78,18 @@ export const ArticleOperation = styled.div`
 `;
 
 export const ReadMore = styled.div`
-  border-radius: 20px;
-  background-color: ${(props) => (props.currentPage > props.totalPage ? '#a5a5a5' : '#86b7b2')};
-  margin: 30px auto 60px;
-  padding: 10px 15px;
+  border-radius: 2rem;
+  background-color: ${(props) =>
+    props.currentPage > props.totalPage ? "#a5a5a5" : "#86b7b2"};
+  margin: 3rem auto 6rem;
+  padding: 1rem 1.5re;
   text-align: center;
-  font-size: 15px;
+  font-size: 1rem;
   color: #fff;
 `;
 
 export const NotAnyMore = styled.div`
   text-align: center;
-  padding: 10px 0;
-  font-size: 16px;
+  padding: 1rem 0;
+  font-size: 1rem;
 `;

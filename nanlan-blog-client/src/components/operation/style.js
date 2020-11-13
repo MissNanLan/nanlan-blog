@@ -3,22 +3,15 @@ import styled from 'styled-components';
 export const OperationWrapper = styled.div``;
 export const OperationItem = styled.div`
   display: flex;
-  justify-content: center;
-  span {
-    vertical-align: middle;
-    &.btn-group {
-      padding-left: 10px;
-      padding-right: 4px;
-      .iconfont {
-        font-size: 16px;
-      }
-      .pinglun {
-        font-size: 10px;
-      }
+  flex-wrap: wrap;
+  .btn-group {
+      vertical-align: middle;
+       margin: 0 .3rem;
+
       .text {
-        font-size: 12px;
-        padding-left: 4px;
-      }
+        margin: 0 0 0 0.2rem
+      } 
+
       &:hover {
         color: #86b7b2;
       }

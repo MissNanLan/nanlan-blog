@@ -2,22 +2,35 @@ import styled from 'styled-components';
 import bannerUrl from '../../static/images/banner1.jpeg';
 
 export const HomeWrapper = styled.div`
-  
+  background-color: #f5f5f5;
 `;
 
 export const HomeBox = styled.div`
+@media screen and (max-width: 900px){
+  flex-direction: column
+}
   display: flex;
   justify-content: center;
+  flex-direction: row
   background-color: #f5f5f5;
   padding-top: 30px;
+  max-width: 1200px
+  margin: 0 auto;
+  padding: 2rem 15px
 `;
 
 export const HomeLeft = styled.div`
-  flex-basis: 50%;
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
+  width: 70%;
 `;
 
 export const HomeRight = styled.div`
-  flex-basis: 30%;
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
+  width: 30%;
   margin-left: 30px;
 `;
 
