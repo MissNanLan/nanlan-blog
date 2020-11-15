@@ -1,6 +1,6 @@
 import React from 'react';
-import List from '../../components/list';
-import Recommed from '../../components/recommend';
+import List from '@/components/list';
+import Recommed from '@/components/recommend';
 import { EssayWrapper, EssayLeft, EssayRight } from './style';
 
 class Essay extends React.PureComponent {

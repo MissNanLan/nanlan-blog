@@ -1,54 +1,61 @@
 import styled from 'styled-components';
-
-export const DetailSide = styled.div`
-  position: fixed;
-  top: 216px;
-  left: 10px;
-  .active {
-    background: "green";
-  }
-`;
+import { media } from '@/styles';
+import { OperationItem } from '@/components/operation/style';
 
 export const DetailWrapper = styled.div`
+  ${media.maxWidth900`flex-direction: column;`}
   display: flex;
   justify-content: center;
+  flex-direction: row
   background-color: #f5f5f5;
-  padding-top: 30px;
-  min-height: calc(100vh - 144px);
-  overflow: auto;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
+  max-width: 1200px
+  margin: 0 auto;
+  padding: 1.5rem 15px
 `;
 
 export const DetailLeft = styled.div`
+  ${media.maxWidth900`width: 100%;`}
   background-color: #fff;
-  flex-basis: 50%;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 0;
-  padding: 15px;
+  width: 70%;
   text-align: center;
-  span {
-    color: #969696;
+  padding: 1rem;
+  ${OperationItem}{
+    justify-content: center;
+  }
+  .star{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
   }
 `;
+
 export const Header = styled.div`
   color: #333;
   font-weight: 400;
-  font-size: 20px;
-  margin-bottom: 6px;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: .3rem;
+  ${media.maxWidth768`font-size: 1rem;`}
 `;
 
 export const Content = styled.div`
-  margin-top: 20px;
   text-align: left;
-  font-size: 14px;
+  font-size: .7rem;
   color: #404040;
   line-height: 1.8;
+  margin-top: 1rem;
+`;
+
+export const Tags = styled.div`
+   margin-top: 1rem;
+   text-align: left;
 `;
 
 export const DetailRight = styled.div`
-  flex-basis: 30%;
-  margin-left: 30px;
+  ${media.maxWidth900`width: 100%; margin-left: 0; margin-top:1.5rem`}
+  width: 30%;
+  margin-left: 1.5rem;
 `;
 
 export const DetailBottom = styled.div`
@@ -59,6 +66,6 @@ export const DetailBottom = styled.div`
   background-color: #fff;
   box-shadow: 0 -1px 3px rgba(26, 26, 26, 0.1);
   z-index: 100;
-  padding: 14px 0;
+  padding: .7rem 0;
   display: flex;
 `;

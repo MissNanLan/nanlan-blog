@@ -1,23 +1,26 @@
 /* eslint-disable */
 import styled from "styled-components";
+import { media } from "@/styles";
 
 export const ArticleList = styled.div`
   .title {
-    @media screen and (max-width: 768px) {
-      font-size: 1rem;
-    }
+    display: flex;
+    align-items: center;
+    ${media.maxWidth768`font-size: 1rem;`}
     font-size: 1.2rem;
-    line-height: 2.2rem;
-    font-weight: bold;
+    line-height: 1.4;
     color: #333;
     &:hover {
       color: #86b7b2;
+    }
+    .ant-tag{
+      margin-left: .3rem;
     }
   }
 
   .abstract {
     margin: 0.6rem 0 0 0;
-    line-height: 2.2rem;
+    line-height: 1.4;
     color: #999;
   }
 `;

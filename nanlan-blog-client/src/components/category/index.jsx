@@ -2,7 +2,6 @@ import React from 'react';
 import { FolderOpenFilled } from '@ant-design/icons';
 import { Tree } from 'antd';
 import { Wrapper, Title, Content } from '../style';
-import { CategoryTitle } from './style';
 
 const treeData = [
   {
@@ -32,7 +31,7 @@ function Category() {
     <Wrapper>
       <Title>
         <FolderOpenFilled />
-        <CategoryTitle>分类</CategoryTitle>
+        <span className="text">分类</span>
       </Title>
       <Content>
         <Tree onSelect={onSelect} treeData={treeData} />

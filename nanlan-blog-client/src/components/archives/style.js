@@ -1,12 +1,6 @@
 /* eslint-disable */
 import styled from "styled-components";
 
-export const ArchivesTitle = styled.span`
-  font-weight: bold;
-  padding-left: 6px;
-  font-size: 16px;
-`;
-
 export const ArchivesItem = styled.div`
   padding: 0.15rem 1rem;
   cursor: pointer;

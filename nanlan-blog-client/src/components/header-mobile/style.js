@@ -5,45 +5,53 @@ export const HeaderWrapper = styled.div`
   position: fixed;
   right: 0;
   left: 0;
-  z-index: 1030;
+  /* z-index: 1030; */
   background: #fff;
 `;
 
 export const HeaderBox = styled.div`
   padding: 10px .8rem
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #dcdcdc;
   display: flex;
   align-items: center;
   justify-content: space-around;
 `;
 
-export const NavBar = styled.div`
-  height: 100%;
+export const NavTop = styled.div`
   display: flex;
   align-items: center;
-  width: 60%;
-  justify-content: space-around;
+  border-bottom: 1px solid #f5f5f5;
+  padding-bottom: 1rem;
+
+  .account {
+    font-size: 0.9rem;
+    padding-left: .5rem
+  }
+`;
+
+export const NavBar = styled.div`
+  margin-top: 1rem;
   .navItem {
-    padding: 0 0 0 0.2rem;
+    display: block;
+    text-align: center;
+    padding: .3rem 1.5rem
     font-size: 0.8rem;
     color: #333;
     text-decoration: none;
+    text-overflow: ellipsis;
+    text-shadow: none;
+    white-space: nowrap;
+    cursor: pointer;
   }
 `;
 
 export const Logo = styled.div`
   display: inline-block;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: url(${logoPic});
+  width: 4rem;
+  height: 4rem;
+  background-image: url(${logoPic});
   background-size: cover;
-`;
-
-export const Addition = styled.div`
-  display: flex;
-  width: 40%;
-  margin-left: 1rem;
-  justify-content: flex-end;
+  border-radius: 2rem;
 `;
 
 export const Search = styled.div`
@@ -58,7 +66,7 @@ export const SearchWrapper = styled.div`
     right: 10%;
     transform: translateY(-50%);
     top: 50%;
-    color: #4C4948;
+    color: #4c4948;
   }
 `;
 
@@ -146,6 +154,11 @@ export const SearchInfoItem = styled.span`
     color: #333;
     border: 1px solid #333;
   }
+`;
+
+export const Addition = styled.div`
+  display: flex;
+  margin-top: 4rem;
 `;
 
 export const AdditionItem = styled.div`

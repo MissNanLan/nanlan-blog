@@ -1,16 +1,24 @@
 import styled from 'styled-components';
+import { media } from '@/styles';
 
 export const EssayWrapper = styled.div`
+  ${media.maxWidth900`flex-direction: column;`}
   display: flex;
   justify-content: center;
+  flex-direction: row
   background-color: #f5f5f5;
-  padding-top: 30px;
-  height: 100%;
+  max-width: 1200px
+  margin: 0 auto;
+  padding: 1.5rem 15px
 `;
+
 export const EssayLeft = styled.div`
-  flex-basis: 50%;
+  ${media.maxWidth900`width: 100%;`}
+  width: 70%;
 `;
+
 export const EssayRight = styled.div`
-  flex-basis: 30%;
+  ${media.maxWidth900`width: 100%;  margin-left: 0`}
+  width: 30%;
   margin-left: 30px;
 `;

@@ -3,14 +3,20 @@ import React from "react";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import { NavLink, withRouter } from "react-router-dom";
-import { Menu, Dropdown } from "antd";
-import { DownOutlined,SearchOutlined,ReloadOutlined } from "@ant-design/icons";
+import { Menu, Dropdown, Drawer } from "antd";
+import {
+  DownOutlined,
+  SearchOutlined,
+  ReloadOutlined,
+  MenuOutlined,
+} from "@ant-design/icons";
 import { actionCreators } from "./store";
 
 import {
   HeaderWrapper,
   HeaderBox,
   Logo,
+  NavTop,
   NavBar,
   Addition,
   AdditionItem,
@@ -25,7 +31,9 @@ import {
   SearchInfoItem,
 } from "./style";
 
-class Header extends React.Component {
+class HeaderMobile extends React.Component {
+  state = { visible: false };
+
   menu = () => {
     return (
       <Menu>
@@ -94,12 +102,22 @@ class Header extends React.Component {
           </SearchInfoTitle>
 
           <SearchInfoList>{pageList}</SearchInfoList>
-
-
         </SearchInfo>
       );
     }
     return null;
+  };
+
+  showDrawer = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
   };
 
   render() {
@@ -127,64 +145,69 @@ class Header extends React.Component {
     return (
       <HeaderWrapper>
         <HeaderBox>
-          <NavBar>
-            <NavLink to="/">
-              <Logo />
-            </NavLink>
-            {navList.map((item) => {
-              return (
-                <NavLink
-                  to={item.path}
-                  key={item.path}
-                  activeStyle={{
-                    fontWeight: "bold",
-                    color: "#86b7b2",
+          <NavLink to="/">
+            <Logo />
+          </NavLink>
+
+          <Search>
+            <SearchWrapper>
+              <CSSTransition timeout={1000} in={focused} classNames="slide">
+                <SerachBox
+                  className={focused ? "focused" : ""}
+                  onFocus={() => {
+                    handleInputFocus(list);
                   }}
-                  className="navItem"
-                >
-                  {item.navName}
-                </NavLink>
-              );
-            })}
-            <Search>
-              <SearchWrapper>
-                <CSSTransition timeout={1000} in={focused} classNames="slide">
-                  <SerachBox
-                    className={focused ? "focused" : ""}
-                    onFocus={() => {
-                      handleInputFocus(list);
+                  onBlur={handleInputBlur}
+                />
+              </CSSTransition>
+              <span className={focused ? "focused" : ""} />
+              <SearchOutlined />
+              {this.getListArea()}
+            </SearchWrapper>
+          </Search>
+
+          <div className="menu" onClick={() => this.showDrawer()}>
+            <MenuOutlined />
+          </div>
+
+          <Drawer
+            title=""
+            placement="right"
+            closable={false}
+            onClose={() => this.onClose()}
+            visible={this.state.visible}
+            key="right"
+          >
+            <NavTop className="top">
+              <Logo />
+              <span className="account">{account}</span>
+            </NavTop>
+
+            <NavBar>
+              {navList.map((item) => {
+                return (
+                  <NavLink
+                    to={item.path}
+                    key={item.path}
+                    activeStyle={{
+                      fontWeight: "bold",
+                      color: "#86b7b2",
                     }}
-                    onBlur={handleInputBlur}
-                  />
-                </CSSTransition>
-                <span className={focused ? "focused" : ""} />
-                <SearchOutlined />
-                {this.getListArea()}
-              </SearchWrapper>
-            </Search>
-          </NavBar>
-          <Addition>
-            {account ? (
-              <AdditionItem className="loginBtn">
-                <Dropdown overlay={this.menu()} trigger={["hover"]}>
-                  <span className="ant-dropdown-link">
-                    {account}
-                    <DownOutlined />
-                  </span>
-                </Dropdown>
-              </AdditionItem>
-            ) : (
-              <NavLink to="/login">
-                <AdditionItem className="loginBtn">登录</AdditionItem>
+                    className="navItem"
+                  >
+                    {item.navName}
+                  </NavLink>
+                );
+              })}
+            </NavBar>
+
+            <Addition>
+              {account && <AdditionItem to="/home">退出</AdditionItem>}
+              <NavLink to="/regisiter">
+                <AdditionItem>注册</AdditionItem>
               </NavLink>
-            )}
-            <NavLink to="/compose">
-              <AdditionItem>写文章</AdditionItem>
-            </NavLink>
-            <NavLink to="/regisiter">
-              <AdditionItem>注册</AdditionItem>
-            </NavLink>
-          </Addition>
+            </Addition>
+          </Drawer>
         </HeaderBox>
       </HeaderWrapper>
     );
@@ -238,4 +261,7 @@ const mapDispathToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispathToProps)(withRouter(Header));
+export default connect(
+  mapStateToProps,
+  mapDispathToProps
+)(withRouter(HeaderMobile));

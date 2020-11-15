@@ -2,7 +2,7 @@
 import React from "react";
 import { BookFilled } from "@ant-design/icons";
 import { Wrapper, Title, Content } from "../style";
-import { ArchivesTitle, ArchivesItem ,ArchivesBottom} from "./style";
+import { ArchivesItem ,ArchivesBottom} from "./style";
 
 const data = [
   {
@@ -31,7 +31,7 @@ function Archives() {
     <Wrapper>
       <Title>
         <BookFilled />
-        <ArchivesTitle>归档</ArchivesTitle>
+        <span className='text'>归档</span>
       </Title>
       <Content>
         {data.map((item,index) => {

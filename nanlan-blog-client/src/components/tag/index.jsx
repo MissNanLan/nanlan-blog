@@ -2,7 +2,7 @@
 import React from "react";
 import { TagFilled } from "@ant-design/icons";
 import { Wrapper, Title, Content } from "../style";
-import { TagTitle, TagItem } from "./style";
+import {  TagItem } from "./style";
 import * as util from "../../utils";
 function Tag() {
   const tagList = [
@@ -64,7 +64,7 @@ function Tag() {
     <Wrapper>
       <Title>
         <TagFilled style={{ fontSize: "16px" }} />
-        <TagTitle>标签</TagTitle>
+        <span className='text'>标签</span>
       </Title>
       <Content>
         {tagList.map((it, index) => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { UpOutlined } from '@ant-design/icons';
 import {
   HomeWrapper,
   HomeBox,
@@ -59,7 +60,7 @@ class Home extends React.Component {
         </HomeBox>
         {isArriveBottom ? (
           <BackTop onClick={this.handleScrollTop}>
-            <span className="arrow iconfont">&#xe61b;</span>
+            <UpOutlined />
           </BackTop>
         ) : (
           ''

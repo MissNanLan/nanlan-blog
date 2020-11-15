@@ -9,6 +9,7 @@ import {
 import store from './store';
 import Index from './pages/index';
 import Home from './pages/home';
+import Essay from './pages/essay';
 import Note from './pages/note';
 import Login from './pages/login';
 import Detail from './pages/detail';
@@ -31,7 +32,7 @@ function App() {
                   <Switch>
                     {/* <Route path="/photography" component={Photography} /> */}
                     <Route path="/note" component={Note} />
-                    {/* <Route path="/essay" component={Essay} /> */}
+                    <Route path="/essay" component={Essay} />
                     <Route path="/home" component={Home} />
                     <Route path="/detail/:id" component={Detail} />
                     <Redirect to="/home" />

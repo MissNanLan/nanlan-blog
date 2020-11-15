@@ -10,8 +10,8 @@ class Recommend extends React.PureComponent {
     return (
       <Wrapper>
         <Title>
-          <SignalFilled style={{ fontSize: "16px" }} />
-          <RecommendTitle>推荐文章</RecommendTitle>
+          <SignalFilled />
+          <span className='text'>推荐文章</span>
         </Title>
         <Content>
           <Link to="/detail/1">

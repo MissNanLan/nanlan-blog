@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Skeleton, Tag } from 'antd';
+import { Tag } from 'antd';
 import {
   ArticleList,
   ArticleItem,
@@ -20,7 +20,7 @@ import { actionCreators } from '../../pages/home/store';
 class List extends React.PureComponent {
   render() {
     const {
- list, isSkeletonLoading, handleReadMore, currentPage, totalPage
+ list, handleReadMore, currentPage, totalPage
     } = this.props;
     return (
       <div>
@@ -70,7 +70,7 @@ class List extends React.PureComponent {
           >
             阅读更多
           </ReadMore>
-          <Skeleton loading={isSkeletonLoading} active>j</Skeleton>
+          {/* <Skeleton loading={isSkeletonLoading} active></Skeleton> */}
           {currentPage > totalPage ? (<NotAnyMore>没有更多了</NotAnyMore>) : ''}
         </ArticleList>
       </div>
