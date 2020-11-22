@@ -71,6 +71,7 @@ class Compose extends React.Component {
       categoryNum: 0,
       htmlContent: "",
       category: [],
+      tagList: [],
     };
   }
 
@@ -145,7 +146,25 @@ class Compose extends React.Component {
     // const htmlContent = editorState.toHTML();
   };
 
-  handleChange = () => {};
+  handleChange = (value) => {
+    console.warn(value);
+  };
+
+  componentWillMount() {
+    let tagList = [];
+    const { Option } = Select;
+    axios.get("/api/tag/list").then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        res.data.forEach((item) => {
+          tagList.push(<Option key={item.name}>{item.name}</Option>);
+        });
+        this.setState({
+          tagList: tagList,
+        });
+      }
+    });
+  }
 
   render() {
     const { TextArea } = Input;
@@ -160,24 +179,6 @@ class Compose extends React.Component {
         sm: { span: 16 },
       },
     };
-
-    const controls = [
-      "bold",
-      "italic",
-      "underline",
-      "text-color",
-      "separator",
-      "link",
-      "separator",
-      "media",
-    ];
-
-    const children = [];
-    for (let i = 10; i < 36; i++) {
-      children.push(
-        <Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>
-      );
-    }
 
     return (
       <ComposeWrapper>
@@ -235,7 +236,7 @@ class Compose extends React.Component {
                 placeholder="请输入标签"
                 onChange={this.handleChange}
               >
-                {children}
+                {this.state.tagList}
               </Select>
             </Form.Item>
 

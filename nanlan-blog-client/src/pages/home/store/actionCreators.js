@@ -13,24 +13,27 @@ const changeHomeData = (result) => ({
 export const getHomeInfo = (params) => {
   const _reqParmas = {
     pageSize: 10,
-    pageNumber: params.pageNumber,
+    ...params,
   };
   return (dispatch) => {
     dispatch(changeHomeData({ isSkeletonLoading: true }));
-    axios.post('/api/article/list', _reqParmas).then((res) => {
-      const _articleList = params.list.concat(res.data.result);
-      dispatch(
-        changeHomeData({
-          articleList: _articleList,
-          isSkeletonLoading: false,
-          currentPage: _reqParmas.pageNumber,
-          amount: res.data.amount,
-          totalPage: res.data.totalPage
+    axios
+      .post('/api/article/list', _reqParmas)
+      .then((res) => {
+        const _articleList = params.list.concat(res.data.result);
+        dispatch(
+          changeHomeData({
+            articleList: _articleList,
+            isSkeletonLoading: false,
+            currentPage: _reqParmas.pageNumber,
+            amount: res.data.amount,
+            totalPage: res.data.totalPage,
           })
-      );
-    }).catch((err) => {
-      console.log(err);
-    });
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 };
 

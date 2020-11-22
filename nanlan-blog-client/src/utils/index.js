@@ -12,4 +12,10 @@ const randomFontSize = () => {
   return Math.floor(Math.random() * (24 - 12 + 1) + 12);
 };
 
-export { randomColor, randomFontSize };
+const getQueryString = (name) => {
+  var searchParams = new URLSearchParams(window.location.search);
+ return  searchParams.get(name);
+
+};
+
+export { randomColor, randomFontSize, getQueryString };

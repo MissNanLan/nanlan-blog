@@ -2,9 +2,13 @@
 import React from "react";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink, Link, withRouter } from "react-router-dom";
 import { Menu, Dropdown } from "antd";
-import { DownOutlined,SearchOutlined,ReloadOutlined } from "@ant-design/icons";
+import {
+  DownOutlined,
+  SearchOutlined,
+  ReloadOutlined,
+} from "@ant-design/icons";
 import { actionCreators } from "./store";
 
 import {
@@ -24,6 +28,7 @@ import {
   SearchInfoList,
   SearchInfoItem,
 } from "./style";
+import Category from "../category";
 
 class Header extends React.Component {
   menu = () => {
@@ -94,8 +99,6 @@ class Header extends React.Component {
           </SearchInfoTitle>
 
           <SearchInfoList>{pageList}</SearchInfoList>
-
-
         </SearchInfo>
       );
     }
@@ -113,14 +116,16 @@ class Header extends React.Component {
       {
         navName: "笔记",
         path: "/note",
+        id: '5fba76e4b661c869e890f775'
       },
       {
         navName: "随笔",
         path: "/essay",
+        id: '5fba76e4b661c869e890f773'
       },
       {
         navName: "摄影",
-        path: "/photography",
+        id: '5fba76e4b661c869e890f772'
       },
     ];
 
@@ -134,7 +139,10 @@ class Header extends React.Component {
             {navList.map((item) => {
               return (
                 <NavLink
-                  to={item.path}
+                  to={{
+                    pathname: item.path,
+                    search: `?category=${item.id}`,
+                  }}
                   key={item.path}
                   activeStyle={{
                     fontWeight: "bold",
