@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const TagSchema = new mongoose.Schema({
-    name: Array,
-    artcileId: Array
+    name: String
 },{
     collection: 'tag'
 })

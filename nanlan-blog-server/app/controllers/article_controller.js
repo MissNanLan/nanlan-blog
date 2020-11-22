@@ -8,11 +8,7 @@ const Response = require("./../utils/response");
 // 查询文章
 const articleList = async (ctx, next) => {
   let req = ctx.request.body;
-  let params = {
-    pageSize: req.pageSize,
-    pageNumber: req.pageNumber,
-    keyword: req.keyword
-  };
+  let params = req;
   const res = await ArticleService.articleService(params);
   ctx.body = Response.success(res);
 };

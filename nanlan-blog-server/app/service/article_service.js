@@ -1,11 +1,13 @@
 const articleDao = require("../models/article");
+const category = require("../models/category");
 async function articleService(params) {
   return new Promise((resolve, reject) => {
     const reg = new RegExp(/w/, "i");
     var query = articleDao;
-    query.estimatedDocumentCount({ }, function (err, total) {
+    query.estimatedDocumentCount({}, function (err, total) {
       query
-        .find()
+        .find({ category: params.category})
+        .populate({ path: "category", select: "name", model: category })
         .skip((params.pageNumber - 1) * params.pageSize)
         .limit(params.pageSize)
         .exec(function (err, res) {
@@ -21,24 +23,6 @@ async function articleService(params) {
           }
         });
     });
-
-    // var query = articleDao.find({ title: reg });
-    // query
-    //   .skip((params.pageNumber - 1) * params.pageSize)
-    //   .limit(params.pageSize);
-    // query.exec(function(err, res) {
-    //   if (err) {
-    //     reject(err);
-    //   } else {
-    //     console.log(query.count());
-    //     var res = {
-    //       result: res,
-    //       amount: 10, // 总条数
-    //       totalPage: 2, // 总页数
-    //     }
-    //     resolve(res);
-    //   }
-    // });
   });
 }
 
@@ -64,8 +48,6 @@ async function insertArticleService(params) {
     }
   });
 }
-
-
 
 module.exports = {
   articleService,

@@ -24,4 +24,5 @@ const routers = router
   .delete("/article/:articleId/star", behaviorController.cancelStar)
 
   .get("/tag/list", tagController.tagList)
+  .post("/tag/list/insert", tagController.tagInsert)
 module.exports = routers;

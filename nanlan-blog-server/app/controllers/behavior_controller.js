@@ -10,7 +10,6 @@ const star = async (ctx, next) => {
   const userId = ctx.request.query.loginUser.userId;
   const { articleId } = ctx.request.body;
   let res = await behavior.star(articleId, userId);
-  console.log("res", res);
   ctx.body = response.success(res);
 };
 /**
