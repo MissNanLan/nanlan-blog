@@ -17,6 +17,12 @@ const articleSchema = new mongoose.Schema(
         ref: "category",
       },
     ],
+    tag: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "tag",
+      },
+    ]
   },
   {
     collection: "article",

@@ -1,13 +1,21 @@
 const articleDao = require("../models/article");
 const category = require("../models/category");
+const tag = require("../models/tag");
+const isNull = require("lodash/isNull");
 async function articleService(params) {
   return new Promise((resolve, reject) => {
     const reg = new RegExp(/w/, "i");
     var query = articleDao;
     query.estimatedDocumentCount({}, function (err, total) {
+      let payload = {};
+      for (let o in params) {
+        if (o === 'pageNumber' || o === 'pageSize') continue;
+        payload[o] =!isNull(params[o]) && params[o];
+      }
       query
-        .find({ category: params.category})
+        .find({ ...payload })
         .populate({ path: "category", select: "name", model: category })
+        .populate({ path: "tag", select: "name", model: tag })
         .skip((params.pageNumber - 1) * params.pageSize)
         .limit(params.pageSize)
         .exec(function (err, res) {
