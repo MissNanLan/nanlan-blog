@@ -121,7 +121,7 @@ class Header extends React.Component {
       {
         navName: "随笔",
         path: "/essay",
-        id: '5fba76e4b661c869e890f773'
+        id: '5fba3f03b661c869e890f773'
       },
       {
         navName: "摄影",

@@ -13,7 +13,8 @@ const changeHomeData = (result) => ({
 export const getHomeInfo = (params) => {
   const _reqParmas = {
     pageSize: 10,
-    ...params,
+    category: params.category,
+    pageNumber: params.pageNumber
   };
   return (dispatch) => {
     dispatch(changeHomeData({ isSkeletonLoading: true }));

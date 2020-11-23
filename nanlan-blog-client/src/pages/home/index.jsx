@@ -75,6 +75,7 @@ const mapProps = (props) => {
 };
 
 const mapDispatch = (dispatch) => {
+  console.log("dispatchHome",dispatch)
   return {
     changeHomeData() {
       dispatch(actionCreators.getHomeInfo({ pageNumber: 1, list: [] }));

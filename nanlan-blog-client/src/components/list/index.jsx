@@ -22,6 +22,7 @@ class List extends React.PureComponent {
     const {
  list, handleReadMore, currentPage, totalPage
     } = this.props;
+    console.log('list', list);
     return (
       <div>
         <ArticleList>
