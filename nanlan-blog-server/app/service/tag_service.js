@@ -1,5 +1,7 @@
 const { resolve } = require("path");
 const tagDao = require("../models/tag");
+const merge = require("lodash/merge");
+const extend = require("lodash/extend");
 
 function tagService() {
   return new Promise((resolve, reject) => {
@@ -26,14 +28,13 @@ function insertTagService(parmas) {
         let diff = [...tags].filter((x) =>
           [...res].every((y) => y.name !== x.name)
         );
-        console.log("diff", diff);
         if (diff.length > 0) {
           tagDao.insertMany(diff, function (err, docs) {
             if (err) console.log(err);
-            resolve({ data: { ...res, ...docs }, msg: "新增成功" });
+            resolve({ data: res.concat(docs), msg: "新增成功" });
           });
         } else {
-          resolve({ data: [], msg: "无新增标签" });
+          resolve({ data: res, msg: "无新增标签" });
         }
       }
     });

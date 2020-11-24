@@ -38,7 +38,8 @@ async function detailService(params) {
   return await articleDao
     .findOne({
       _id: params.id,
-    })
+    }).populate({ path: "category", select: "name", model: category })
+    .populate({ path: "tag", select: "name", model: tag })
     .lean();
 }
 
