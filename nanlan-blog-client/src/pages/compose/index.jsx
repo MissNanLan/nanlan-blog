@@ -92,13 +92,26 @@ class Compose extends React.Component {
   };
 
   saveEditorContent = (values) => {
-    const { htmlConent } = this.state;
-    const req = values;
-    console.warn("req", req);
-    axios.post("/api/article/insert", req).then((res) => {
-      if (res.status === 200) {
-        this.showConfirm();
-      }
+    let tag = [];
+    axios.post("/api/tag/insert", { tags: values.tags }).then((res) => {
+      console.log(res);
+      res.data.data.forEach((it) => tag.push(it._id));
+      const { htmlConent } = this.state;
+
+      console.log();
+      const req = {
+        title: values.title,
+        abstract: values.abstract,
+        content: htmlConent,
+        tag: tag,
+        category: values.category,
+      };
+      console.warn("req", req);
+      axios.post("/api/article/insert", req).then((res) => {
+        if (res.status === 200) {
+          this.showConfirm();
+        }
+      });
     });
   };
 
@@ -107,6 +120,7 @@ class Compose extends React.Component {
     // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
     const { editorState } = this.state;
     const htmlContent = editorState.toHTML();
+    console.log("htmlContent", htmlContent);
     this.setState({
       htmlContent: htmlContent,
       editorState: editorState,
@@ -138,16 +152,6 @@ class Compose extends React.Component {
     window.previewWindow = window.open();
     window.previewWindow.document.write(buildPreviewHtml(editorState));
     window.previewWindow.document.close();
-  };
-
-  // 在编辑器获得焦点时按下ctrl+s会执行此方法
-  submitContent = async () => {
-    // const { editorState } = this.state;
-    // const htmlContent = editorState.toHTML();
-  };
-
-  handleChange = (value) => {
-    console.warn(value);
   };
 
   componentWillMount() {
@@ -205,7 +209,7 @@ class Compose extends React.Component {
 
             <Form.Item
               label="文章类别"
-              name="categrory"
+              name="category"
               rules={[
                 {
                   required: true,
@@ -222,7 +226,7 @@ class Compose extends React.Component {
 
             <Form.Item
               label="文章标签"
-              name="tag"
+              name="tags"
               rules={[
                 {
                   required: true,
@@ -234,7 +238,6 @@ class Compose extends React.Component {
                 mode="tags"
                 style={{ width: "100%" }}
                 placeholder="请输入标签"
-                onChange={this.handleChange}
               >
                 {this.state.tagList}
               </Select>

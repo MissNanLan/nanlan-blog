@@ -50,7 +50,7 @@ class Detail extends React.Component {
                 detail.tag.map((it, index) => {
                   return (
                     <Tag key={index} color="#86b7b2">
-                      {it}
+                      {it.name}
                     </Tag>
                   );
                 })}
