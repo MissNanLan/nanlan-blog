@@ -1,0 +1,19 @@
+{
+  "name": "nanlan-blog-server-egg",
+  "version": "1.0.0",
+  "description": "nalan blog server egg ver.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "egg-bin dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nanlan",
+  "license": "ISC",
+  "dependencies": {
+    "egg": "^2.29.1",
+    "egg-mongoose": "^3.3.1"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.15.0"
+  }
+}

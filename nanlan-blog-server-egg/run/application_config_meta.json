@@ -1,0 +1,277 @@
+{
+  "keys": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/config/config.default.js",
+  "mongoose": {
+    "url": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/config/config.default.js",
+    "options": {
+      "useUnifiedTopology": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/config/config.default.js"
+    },
+    "plugins": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-mongoose/config/config.default.js",
+    "loadModel": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-mongoose/config/config.default.js",
+    "app": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-mongoose/config/config.default.js",
+    "agent": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-mongoose/config/config.default.js"
+  },
+  "security": {
+    "csrf": {
+      "ignore": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/config/config.default.js",
+      "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "type": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "ignoreJSON": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "useSession": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "cookieName": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "sessionName": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "headerName": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "bodyName": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "queryName": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "refererWhiteList": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+    },
+    "domainWhiteList": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+    "protocolWhiteList": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+    "defaultMiddleware": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+    "xframe": {
+      "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+    },
+    "hsts": {
+      "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.local.js",
+      "maxAge": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "includeSubdomains": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+    },
+    "dta": {
+      "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+    },
+    "noopen": {
+      "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+    },
+    "nosniff": {
+      "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+    },
+    "xssProtection": {
+      "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+    },
+    "csp": {
+      "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "policy": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js",
+      "checkAddress": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+    }
+  },
+  "session": {
+    "maxAge": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-session/config/config.default.js",
+    "key": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-session/config/config.default.js",
+    "httpOnly": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-session/config/config.default.js",
+    "encrypt": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-session/config/config.default.js"
+  },
+  "helper": {
+    "shtml": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-security/config/config.default.js"
+  },
+  "jsonp": {
+    "limit": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-jsonp/config/config.default.js",
+    "callback": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-jsonp/config/config.default.js",
+    "csrf": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-jsonp/config/config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-onerror/config/config.default.js",
+    "appErrorFilter": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-onerror/config/config.default.js",
+    "templatePath": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-onerror/config/config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-i18n/config/config.default.js",
+    "dirs": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-i18n/config/config.default.js",
+    "queryField": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-i18n/config/config.default.js",
+    "cookieField": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-i18n/config/config.default.js",
+    "cookieDomain": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-i18n/config/config.default.js"
+  },
+  "watcher": {
+    "type": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-watcher/config/config.local.js",
+    "eventSources": {
+      "default": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-watcher/config/config.default.js",
+      "development": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-watcher/config/config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-schedule/config/config.default.js",
+      "file": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-schedule/config/config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-schedule/config/config.default.js"
+  },
+  "multipart": {
+    "mode": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js",
+    "autoFields": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js",
+    "defaultCharset": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js",
+    "fieldNameSize": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js",
+    "fieldSize": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js",
+    "fields": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js",
+    "fileSize": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js",
+    "files": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js",
+    "fileExtensions": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js",
+    "whitelist": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js",
+    "tmpdir": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-multipart/config/config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-development/config/config.default.js",
+    "ignoreDirs": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-development/config/config.default.js",
+    "fastReady": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-development/config/config.default.js",
+    "reloadOnDebug": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-development/config/config.default.js",
+    "overrideDefault": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-development/config/config.default.js",
+    "overrideIgnore": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-development/config/config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-logrotator/config/config.default.js",
+    "hourDelimiter": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-logrotator/config/config.default.js",
+    "filesRotateBySize": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-logrotator/config/config.default.js",
+    "maxFileSize": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-logrotator/config/config.default.js",
+    "maxFiles": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-logrotator/config/config.default.js",
+    "rotateDuration": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-logrotator/config/config.default.js",
+    "maxDays": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-logrotator/config/config.default.js"
+  },
+  "static": {
+    "prefix": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-static/config/config.default.js",
+    "dir": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-static/config/config.default.js",
+    "dynamic": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-static/config/config.default.js",
+    "preload": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-static/config/config.default.js",
+    "buffer": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-static/config/config.default.js",
+    "maxFiles": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-static/config/config.default.js"
+  },
+  "view": {
+    "root": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-view/config/config.default.js",
+    "cache": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-view/config/config.local.js",
+    "defaultExtension": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-view/config/config.default.js",
+    "defaultViewEngine": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-view/config/config.default.js",
+    "mapping": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg-view/config/config.default.js"
+  },
+  "env": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "name": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "cookies": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "proxy": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "maxIpsCount": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "maxProxyCount": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "protocolHeaders": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "ipHeaders": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "hostHeaders": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "pkg": {
+    "name": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "version": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "description": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "main": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "scripts": {
+      "dev": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "test": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+    },
+    "author": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "license": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "dependencies": {
+      "egg": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "egg-mongoose": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+    },
+    "devDependencies": {
+      "egg-bin": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+    }
+  },
+  "baseDir": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "HOME": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "rundir": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "dump": {
+    "ignore": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "notFound": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "sitefile": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "middlewares": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "httpClient": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+  },
+  "bodyParser": {
+    "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "formLimit": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "jsonLimit": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "textLimit": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "strict": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "queryString": {
+      "arrayLimit": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "depth": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "parameterLimit": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+    },
+    "onerror": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+  },
+  "logger": {
+    "dir": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "env": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "level": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "consoleLevel": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "disableConsoleAfterReady": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "outputJSON": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "buffer": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "appLogName": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "coreLogName": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "agentLogName": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "errorLogName": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "coreLogger": {
+      "consoleLevel": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.local.js"
+    },
+    "allowDebugAtProd": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "dnsCacheLookupInterval": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "dnsCacheMaxLength": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "request": {
+      "timeout": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "logging": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+  },
+  "coreMiddleware": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "workerStartTimeout": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "serverTimeout": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "port": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+      "hostname": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js",
+    "responseTimeout": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+  },
+  "onClientError": "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/node_modules/egg/config/config.default.js"
+}
