@@ -15,6 +15,7 @@ export const EssayWrapper = styled.div`
 export const EssayLeft = styled.div`
   ${media.maxWidth900`width: 100%;`}
   width: 70%;
+  margin-bottom: 84px;
 `;
 
 export const EssayRight = styled.div`

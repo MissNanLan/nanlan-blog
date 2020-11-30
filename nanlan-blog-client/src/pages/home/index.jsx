@@ -31,7 +31,6 @@ class Home extends React.Component {
   }
 
   handleScrollTop() {
-    console.log(this);
     window.scrollTo(0, 0);
   }
 
@@ -75,7 +74,6 @@ const mapProps = (props) => {
 };
 
 const mapDispatch = (dispatch) => {
-  console.log("dispatchHome",dispatch)
   return {
     changeHomeData() {
       dispatch(actionCreators.getHomeInfo({ pageNumber: 1, list: [] }));

@@ -1,13 +1,14 @@
-import React from 'react';
-import moment from 'moment';
+/* eslint-disable  */
+import React from "react";
+import moment from "moment";
 import {
   MessageOutlined,
   LikeOutlined,
   HeartOutlined,
   CalendarOutlined,
   BookOutlined,
-} from '@ant-design/icons';
-import { OperationWrapper, OperationItem } from './style';
+} from "@ant-design/icons";
+import { OperationWrapper, OperationItem } from "./style";
 
 class Opertaion extends React.PureComponent {
   render() {
@@ -19,7 +20,7 @@ class Opertaion extends React.PureComponent {
           <span className="btn-group">
             <CalendarOutlined />
             <span className="text">
-              {moment(commentObj.date).format('YYYY-MM-DD HH:mm:ss')}
+              {moment(commentObj.date).format("YYYY-MM-DD HH:mm:ss")}
             </span>
           </span>
           <span className="btn-group">
@@ -36,7 +37,10 @@ class Opertaion extends React.PureComponent {
           </span>
           <span className="btn-group">
             <BookOutlined />
-            <span className="text">前端 面试</span>
+            {commentObj.category &&
+              commentObj.category.map((it) => {
+                return <span className="text">{it.name}</span>;
+              })}
           </span>
         </OperationItem>
       </OperationWrapper>

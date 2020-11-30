@@ -14,7 +14,6 @@ import { actionCreators } from '../../store/index';
 class Star extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       isClickStar: false,
       like_count: props.detail && props.detail.like_count,

@@ -1,9 +1,8 @@
-/* eslint-disable no-debugger */
-/* eslint-disable camelcase */
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { Tag } from 'antd';
+/* eslint-disable  */
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { Tag } from "antd";
 import {
   ArticleList,
   ArticleItem,
@@ -12,32 +11,34 @@ import {
   ArticleRight,
   ArticleOperation,
   ReadMore,
-  NotAnyMore
-} from './style';
-import Opertaion from '../operation';
-import { actionCreators } from '../../pages/home/store';
+  NotAnyMore,
+} from "./style";
+import Opertaion from "../operation";
+import { actionCreators } from "../../pages/home/store";
 
 class List extends React.PureComponent {
   render() {
-    const {
- list, handleReadMore, currentPage, totalPage
-    } = this.props;
-    console.log('list', list);
+    const { list, handleReadMore, currentPage, totalPage } = this.props;
     return (
       <div>
         <ArticleList>
           {list.map((item) => {
             const {
-               like_count, comment_count, date, view_count
-              } = item;
+              like_count,
+              comment_count,
+              date,
+              view_count,
+              category,
+            } = item;
             const commentObj = {
               like_count,
               comment_count,
               date,
               view_count,
+              category,
             };
             return (
-              <Link key={item._id} to={'/detail/' + item._id}>
+              <Link key={item._id} to={"/detail/" + item._id}>
                 <ArticleItem key={item._id}>
                   <ArticleContent>
                     <ArticleLeft>
@@ -50,7 +51,9 @@ class List extends React.PureComponent {
                     <ArticleRight>
                       <div className="title">
                         {item.title}
-                        <Tag color="success">success</Tag>
+                        {item.tag.map((it) => {
+                          return <Tag color="success">{it.name}</Tag>;
+                        })}
                       </div>
                       <p className="abstract">{item.abstract}</p>
                     </ArticleRight>
@@ -72,7 +75,7 @@ class List extends React.PureComponent {
             阅读更多
           </ReadMore>
           {/* <Skeleton loading={isSkeletonLoading} active></Skeleton> */}
-          {currentPage > totalPage ? (<NotAnyMore>没有更多了</NotAnyMore>) : ''}
+          {currentPage > totalPage ? <NotAnyMore>没有更多了</NotAnyMore> : ""}
         </ArticleList>
       </div>
     );
@@ -81,10 +84,10 @@ class List extends React.PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    list: state.home.get('articleList'),
-    currentPage: state.home.get('currentPage'),
-    totalPage: state.home.get('totalPage'),
-    isSkeletonLoading: state.home.get('isSkeletonLoading'),
+    list: state.home.get("articleList"),
+    currentPage: state.home.get("currentPage"),
+    totalPage: state.home.get("totalPage"),
+    isSkeletonLoading: state.home.get("isSkeletonLoading"),
   };
 };
 
@@ -92,10 +95,12 @@ const mapDispatch = (dispatch) => {
   return {
     handleReadMore(currentPage, totalPage, list) {
       if (currentPage <= totalPage) {
-        dispatch(actionCreators.getHomeInfo({ pageNumber: currentPage + 1, list}));
-        return '';
+        dispatch(
+          actionCreators.getHomeInfo({ pageNumber: currentPage + 1, list })
+        );
+        return "";
       }
-      return 'notAnyMore';
+      return "notAnyMore";
     },
   };
 };

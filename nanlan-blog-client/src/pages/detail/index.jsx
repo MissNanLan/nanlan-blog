@@ -31,12 +31,13 @@ class Detail extends React.Component {
 
   render() {
     const { detail, histroy } = this.props;
-    const { like_count, view_count, date, comment_count, tag } = detail;
+    const { like_count, view_count, date, comment_count, category } = detail;
     const commentObj = {
       like_count,
       view_count,
       date,
       comment_count,
+      category,
     };
     return (
       <div>
@@ -55,7 +56,7 @@ class Detail extends React.Component {
                   );
                 })}
             </Tags>
-            <div class="star">
+            <div className="star">
               <Star history={histroy} detail={detail} />
             </div>
           </DetailLeft>

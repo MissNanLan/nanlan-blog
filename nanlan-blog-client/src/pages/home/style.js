@@ -20,6 +20,7 @@ export const HomeBox = styled.div`
 export const HomeLeft = styled.div`
   ${media.maxWidth900`width: 100%;`}
   width: 70%;
+  margin-bottom: 84px;
 `;
 
 export const HomeRight = styled.div`

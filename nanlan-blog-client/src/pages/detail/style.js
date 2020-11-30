@@ -19,6 +19,7 @@ export const DetailLeft = styled.div`
   width: 70%;
   text-align: center;
   padding: 1rem;
+  margin-bottom: 84px;
   ${OperationItem}{
     justify-content: center;
   }

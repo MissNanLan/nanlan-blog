@@ -15,6 +15,7 @@ export const NoteWrapper = styled.div`
 export const NoteLeft = styled.div`
   ${media.maxWidth900`width: 100%;`}
   width: 70%;
+  margin-bottom: 84px;
 `;
 
 export const NoteRight = styled.div`

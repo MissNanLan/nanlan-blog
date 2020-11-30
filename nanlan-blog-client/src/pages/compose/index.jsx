@@ -94,36 +94,20 @@ class Compose extends React.Component {
   saveEditorContent = (values) => {
     let tag = [];
     axios.post("/api/tag/insert", { tags: values.tags }).then((res) => {
-      console.log(res);
       res.data.data.forEach((it) => tag.push(it._id));
-      const { htmlConent } = this.state;
-
-      console.log();
+      console.log("this.state", this.state);
       const req = {
         title: values.title,
         abstract: values.abstract,
-        content: htmlConent,
+        content: this.state.htmlContent,
         tag: tag,
-        category: values.category,
+        category: ["5fba76e4b661c869e890f775"],
       };
-      console.warn("req", req);
       axios.post("/api/article/insert", req).then((res) => {
         if (res.status === 200) {
           this.showConfirm();
         }
       });
-    });
-  };
-
-  submitContent = () => {
-    // 在编辑器获得焦点时按下ctrl+s会执行此方法
-    // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
-    const { editorState } = this.state;
-    const htmlContent = editorState.toHTML();
-    console.log("htmlContent", htmlContent);
-    this.setState({
-      htmlContent: htmlContent,
-      editorState: editorState,
     });
   };
 
