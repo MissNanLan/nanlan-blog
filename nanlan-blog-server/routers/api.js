@@ -8,7 +8,9 @@ const articleController = require("../app/controllers/article_controller");
 const loginController = require("../app/controllers/login_controller");
 const regisiterController = require("../app/controllers/regisiter_controller");
 const behaviorController = require("../app/controllers/behavior_controller");
-const tagController = require("../app/controllers/tag_controller")
+const tagController = require("../app/controllers/tag_controller");
+const article_controller = require("../app/controllers/article_controller");
+const article = require("../app/models/article");
 
 
 const routers = router
@@ -23,6 +25,9 @@ const routers = router
   .post("/article/star", behaviorController.star)
   .delete("/article/:articleId/star", behaviorController.cancelStar)
 
-  .get("/tag/list", tagController.tagList)
+  .post("/tag/list", tagController.tagList)
   .post("/tag/insert", tagController.tagInsert)
+
+  .post("/archives/list", article_controller.archivesList)
+  .post("/recommend/list", article_controller.recommendList)
 module.exports = routers;

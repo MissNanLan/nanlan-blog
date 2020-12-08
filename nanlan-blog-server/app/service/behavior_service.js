@@ -41,7 +41,7 @@ async function star(articleId, userId, isStar = true) {
         );
         // await doUpdate(starBehavior);
         //  更新文章点赞数量
-        updateArticleStarCount(article, 1);
+        await updateArticleStarCount(article, 1);
       }
     } else {
       // 取消点赞
@@ -52,7 +52,7 @@ async function star(articleId, userId, isStar = true) {
           { article_id: starBehavior.article_id },
           { status: starBehavior.status }
         );
-        updateArticleStarCount(article, -1);
+        await updateArticleStarCount(article, -1);
       }
     }
     return { like_count: article.like_count };
@@ -65,7 +65,10 @@ async function finArticle(articleId) {
 
 async function updateArticleStarCount(article, count) {
   article.like_count = article.like_count + count;
-  await articleDao.updateOne(article);
+  await articleDao.updateOne(
+    { _id: article._id },
+    { like_count: article.like_count }
+  );
 }
 
 async function findUserStarStatusToPost(postId, userId) {
