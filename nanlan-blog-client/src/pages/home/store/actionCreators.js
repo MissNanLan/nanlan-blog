@@ -12,10 +12,10 @@ const changeHomeData = (result) => ({
 
 export const getHomeInfo = (params) => {
   const _reqParmas = {
-    pageSize: 10,
-    category: params.category,
-    pageNumber: params.pageNumber
+    pageSize: params.pageSize || 10,
+    ...params
   };
+  delete _reqParmas.list;
   return (dispatch) => {
     dispatch(changeHomeData({ isSkeletonLoading: true }));
     axios
@@ -26,7 +26,7 @@ export const getHomeInfo = (params) => {
           changeHomeData({
             articleList: _articleList,
             isSkeletonLoading: false,
-            currentPage: _reqParmas.pageNumber,
+            currentPage: params.pageNumber,
             amount: res.data.amount,
             totalPage: res.data.totalPage,
           })

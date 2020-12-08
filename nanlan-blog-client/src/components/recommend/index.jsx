@@ -2,36 +2,42 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SignalFilled } from "@ant-design/icons";
+import axios from "@/server/axios";
 import { RecommendTitle, RecommendContentItem } from "./style";
 import { Wrapper, Title, Content } from "../style";
 
 class Recommend extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      recommendList: [],
+    };
+  }
+  componentDidMount() {
+    axios.post("/api/recommend/list", {}).then((res) => {
+      this.setState({
+        recommendList: res.data,
+      });
+    });
+  }
+
   render() {
     return (
       <Wrapper>
         <Title>
           <SignalFilled />
-          <span className='text'>推荐文章</span>
+          <span className="text">推荐文章</span>
         </Title>
         <Content>
-          <Link to="/detail/1">
-            <RecommendContentItem>
-              <span className="sousuo iconfont">&#xe62b;</span>
-              <span className="title">
-                爱情是一片炽热狂迷的痴心，一团无法扑灭的烈火
-                爱情是一片炽热狂迷的痴心，一团无法扑灭的烈火
-              </span>
-            </RecommendContentItem>
-          </Link>
-          <Link to="/detail/1">
-            <RecommendContentItem>
-              <span className="sousuo iconfont">&#xe62b;</span>
-              <span className="title">
-                爱情是一片炽热狂迷的痴心，一团无法扑灭的烈火
-                爱情是一片炽热狂迷的痴心，一团无法扑灭的烈火
-              </span>
-            </RecommendContentItem>
-          </Link>
+          {this.state.recommendList.map((it, index) => {
+            return (
+              <Link to={"/detail/" + it._id} key={index}>
+                <RecommendContentItem>
+                  <span className="title">{it.title}</span>
+                </RecommendContentItem>
+              </Link>
+            );
+          })}
         </Content>
       </Wrapper>
     );

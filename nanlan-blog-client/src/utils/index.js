@@ -14,8 +14,12 @@ const randomFontSize = () => {
 
 const getQueryString = (name) => {
   var searchParams = new URLSearchParams(window.location.search);
- return  searchParams.get(name);
-
+  var result = {};
+  for (var pair of searchParams.entries()) {
+    result[pair[0]] = pair[1];
+  }
+  console.log("result",result)
+  return result;
 };
 
 export { randomColor, randomFontSize, getQueryString };

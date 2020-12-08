@@ -136,14 +136,14 @@ class Header extends React.Component {
             <NavLink to="/">
               <Logo />
             </NavLink>
-            {navList.map((item) => {
+            {navList.map((item,index) => {
               return (
                 <NavLink
                   to={{
                     pathname: item.path,
                     search: `?category=${item.id}`,
                   }}
-                  key={item.path}
+                  key={index}
                   activeStyle={{
                     fontWeight: "bold",
                     color: "#86b7b2",

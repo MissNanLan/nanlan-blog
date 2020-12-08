@@ -1,46 +1,44 @@
 /* eslint-disable */
 import React from "react";
-import { getQueryString } from "@/utils";
 import { connect } from "react-redux";
 import List from "@/components/list";
-import Recommed from "@/components/recommend";
-import { NoteWrapper, NoteLeft, NoteRight } from "./style";
+import { getQueryString } from "@/utils";
+import { ListWrapper, ListLeft, ListRight } from "./style";
 import { actionCreators } from "../home/store";
-class Note extends React.PureComponent {
+
+class Lists extends React.PureComponent {
   constructor(props) {
     super(props);
   }
+
   componentDidMount() {
     const { changeHomeData } = this.props;
-    changeHomeData(getQueryString().category);
+
+    changeHomeData(getQueryString());
   }
 
   render() {
     return (
-      <NoteWrapper>
-        <NoteLeft>
+      <ListWrapper>
+        <ListLeft>
           <List />
-        </NoteLeft>
-        <NoteRight>
-          <Recommed />
-        </NoteRight>
-      </NoteWrapper>
+        </ListLeft>
+      </ListWrapper>
     );
   }
 }
 
 const mapDispatch = (dispatch) => {
   return {
-    changeHomeData(categoryId) {
+    changeHomeData(params) {
       dispatch(
         actionCreators.getHomeInfo({
-          category: categoryId,
           pageNumber: 1,
+          ...params,
           list: [],
         })
       );
     },
   };
 };
-
-export default connect("", mapDispatch)(Note); ;
+export default connect("", mapDispatch)(Lists);

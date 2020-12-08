@@ -1,85 +1,47 @@
 /* eslint-disable  */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TagFilled } from "@ant-design/icons";
+import { NavLink } from "react-router-dom";
+import axios from "@/server/axios";
 import { Wrapper, Title, Content } from "../style";
-import {  TagItem } from "./style";
+import { TagItem } from "./style";
 import * as util from "../../utils";
+
 function Tag() {
-  const tagList = [
-    {
-      name: "测试1",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试2",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试3",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试4",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试5",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试6",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试7",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试8",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试4",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试5",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试6",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试7",
-      articleIds: [1, 2],
-    },
-    {
-      name: "测试8",
-      articleIds: [1, 2],
-    },
-  ];
+  const [tagList, setTagList] = useState([]);
+  useEffect(() => {
+    axios.post("/api/tag/list", {}).then((res) => {
+      setTagList(res.data);
+    });
+  }, []);
 
   return (
     <Wrapper>
       <Title>
         <TagFilled style={{ fontSize: "16px" }} />
-        <span className='text'>标签</span>
+        <span className="text">标签</span>
       </Title>
       <Content>
         {tagList.map((it, index) => {
           return (
-            <TagItem key={index}>
-              <span
-                className="tag"
-                style={{
-                  color: util.randomColor(),
-                  fontSize: util.randomFontSize() + "px",
-                }}
-              >
-                {it.name}
-              </span>
-            </TagItem>
+            <NavLink
+              to={{
+                pathname: "/list",
+                search: `?tag=${it._id}`,
+              }}
+            >
+              <TagItem key={index}>
+                <span
+                  className="tag"
+                  style={{
+                    color: util.randomColor(),
+                    fontSize: util.randomFontSize() + "px",
+                  }}
+                >
+                  {it.name}
+                </span>
+              </TagItem>
+            </NavLink>
           );
         })}
       </Content>

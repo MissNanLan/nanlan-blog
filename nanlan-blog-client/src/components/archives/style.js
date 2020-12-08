@@ -21,14 +21,3 @@ export const ArchivesItem = styled.div`
     transform: scale(1.1);
   }
 `;
-
-export const ArchivesBottom = styled.div`
-  text-align: center;
-  font-size: 16px;
-  padding: 0.5rem 0;
-  cursor: pointer;
-  &:hover {
-    background-color: #86b7b2;
-    color: #fff;
-  }
-`;

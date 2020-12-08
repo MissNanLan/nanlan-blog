@@ -38,8 +38,12 @@ class Opertaion extends React.PureComponent {
           <span className="btn-group">
             <BookOutlined />
             {commentObj.category &&
-              commentObj.category.map((it) => {
-                return <span className="text">{it.name}</span>;
+              commentObj.category.map((it, index) => {
+                return (
+                  <span key={index} className="text">
+                    {it.name}
+                  </span>
+                );
               })}
           </span>
         </OperationItem>

@@ -13,7 +13,7 @@ class Essay extends React.PureComponent {
 
   componentDidMount() {
     const { changeHomeData } = this.props;
-    changeHomeData(getQueryString("category"));
+    changeHomeData(getQueryString().category);
   }
 
   render() {

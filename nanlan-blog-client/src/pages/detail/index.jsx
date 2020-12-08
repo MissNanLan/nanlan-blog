@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { Tag } from "antd";
 import {
   DetailWrapper,
-  DetailSide,
   DetailLeft,
   DetailRight,
   DetailBottom,
@@ -25,9 +24,9 @@ class Detail extends React.Component {
     getDetail(match.params.id);
   }
 
-  clickStar() {
-    this.isClickStar = !this.isClickStar;
-  }
+  // clickStar() {
+  //   this.isClickStar = !this.isClickStar;
+  // }
 
   render() {
     const { detail, histroy } = this.props;

@@ -1,55 +1,41 @@
 /* eslint-disable */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BookFilled } from "@ant-design/icons";
+import { NavLink } from "react-router-dom";
+import axios from "@/server/axios";
 import { Wrapper, Title, Content } from "../style";
-import { ArchivesItem ,ArchivesBottom} from "./style";
+import { ArchivesItem } from "./style";
 
-const data = [
-  {
-    month: "九月",
-    year: "2020",
-    count: 2,
-  },
-  {
-    month: "八月",
-    year: "2020",
-    count: 2,
-  },
-  {
-    month: "七月",
-    year: "2020",
-    count: 2,
-  },
-  {
-    month: "六月",
-    year: "2020",
-    count: 2,
-  },
-];
 function Archives() {
+  const [archivesList, setarchivesList] = useState([]);
+  useEffect(() => {
+    axios.post("/api/archives/list", {}).then((res) => {
+      setarchivesList(res.data);
+    });
+  }, []);
   return (
     <Wrapper>
       <Title>
         <BookFilled />
-        <span className='text'>归档</span>
+        <span className="text">归档</span>
       </Title>
       <Content>
-        {data.map((item,index) => {
+        {archivesList.map((it, index) => {
           return (
-            <ArchivesItem key={index}>
-              <span className="date">
-                {item.year}
-                {item.month}
-              </span>
-              <span className="count">{item.count}</span>
-            </ArchivesItem>
+            <NavLink
+              to={{
+                pathname: "/list",
+                search: `?date=${it.date}`,
+              }}
+            >
+              <ArchivesItem key={index}>
+                <span className="date">{it.date}</span>
+                <span className="count">{it.num}</span>
+              </ArchivesItem>
+            </NavLink>
           );
         })}
-
       </Content>
-      <ArchivesBottom>
-        查看更多
-      </ArchivesBottom>
     </Wrapper>
   );
 }

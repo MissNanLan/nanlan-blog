@@ -14,7 +14,9 @@ export default (state = defaultState, action) => {
         content: action.content,
       });
     case UPDATE_ARTICLE_DETAIL:
-      return state.setIn(['content'], action.content);
+      return state.merge({
+        content: action.content
+      });
     default:
       return state;
   }

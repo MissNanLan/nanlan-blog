@@ -15,6 +15,7 @@ import Login from './pages/login';
 import Detail from './pages/detail';
 import Regisiter from './pages/regisiter';
 import Compose from './pages/compose';
+import Lists from './pages/list';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
                     <Route path="/note" component={Note} />
                     <Route path="/essay" component={Essay} />
                     <Route path="/home" component={Home} />
+                    <Route path="/list" component={Lists} />
                     <Route path="/detail/:id" component={Detail} />
                     <Redirect to="/home" />
                   </Switch>

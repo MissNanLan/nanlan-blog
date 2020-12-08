@@ -1,27 +1,25 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable no-debugger */
-import React from 'react';
-import { message } from 'antd';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { HeartOutlined, HeartFilled } from '@ant-design/icons';
-import { StarWrapper, StarBtn } from './style';
-import isLogin from '../../../../static/js/util';
-import server from '../../../../server';
-import { actionCreators } from '../../store/index';
+/* eslint-disable  */
+import React from "react";
+import { message } from "antd";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { StarWrapper, StarBtn } from "./style";
+import isLogin from "../../../../static/js/util";
+import server from "../../../../server";
+import { actionCreators } from "../../store/index";
 
 class Star extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isClickStar: false,
-      like_count: props.detail && props.detail.like_count,
-      star_status: props.detail && props.detail.star_status,
+      star_status: false,
+      like_count: 0,
     };
-    this.handleClickStar = window._.throttle(this.clickStar, 100, {
-      trailing: false,
-    });
+    // this.handleClickStar = window._.throttle(this.clickStar, 100, {
+    //   trailing: false,
+    // });
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -29,6 +27,7 @@ class Star extends React.Component {
       return {
         like_count: nextProps.detail.like_count,
         star_status: nextProps.detail.star_status,
+        isClickStar: nextProps.detail.star_status,
       };
     }
     // 否则，对于state不进行任何操作
@@ -40,7 +39,7 @@ class Star extends React.Component {
   //     Object.keys(this.state).forEach(() => {
   //       this.setState({
   //         like_count: prevProps.detail.like_count,
-  //         star_status: prevProps.detail.star_status,
+  //         isClickStar: prevProps.detail.star_status
   //       });
   //     });
   //   }
@@ -48,27 +47,23 @@ class Star extends React.Component {
 
   clickStar = () => {
     if (!isLogin) {
-      message.warning('你还没有登录');
+      message.warning("你还没有登录");
       const { history } = this.props;
-      history.push('/login');
+      history.push("/login");
     } else {
-      // const { detail } = this.props;
-      // const articleId = detail._id;
-      const { isClickStar } = this.state;
+      const { detail } = this.props;
       this.setState({
-        isClickStar: !isClickStar,
+        isClickStar: !this.state.isClickStar,
       });
-      if (!isClickStar) {
+      if (this.state.isClickStar) {
         // 点赞
-        server.detailServer
-          .star({ articleId: '5e088eec2c5f1040b3f6cbea' })
-          .then((res) => {
-            this.props.updateDetail(res.data.like_count, true);
-          });
+        server.detailServer.star({ articleId: detail._id }).then((res) => {
+          this.props.updateDetail(res.data.like_count, true);
+        });
       } else {
         // 取消点赞
         server.detailServer
-          .cancelStar({ articleId: '5e088eec2c5f1040b3f6cbea' })
+          .cancelStar({ articleId: detail._id })
           .then((res) => {
             this.props.updateDetail(res.data.like_count, false);
           });
@@ -76,25 +71,20 @@ class Star extends React.Component {
     }
   };
 
-  handleClickStar = () => {
-    window._.throttle(this.clickStar, 100, {
-      trailing: false,
-    });
-  };
-
   render() {
+    const { detail } = this.props;
     return (
       <StarWrapper
-        className={this.state.isClickStar ? 'active' : ''}
-        onClick={this.handleClickStar}
+        // className={this.state.isClickStar ? 'active' : ''}
+        onClick={this.clickStar}
       >
         <StarBtn primary>
-          {this.state.star_status ? (
-            <HeartFilled style={{ fontSize: '26px', color: '#86b7b2' }} />
+          {detail.star_status ? (
+            <HeartFilled style={{ fontSize: "26px", color: "#86b7b2" }} />
           ) : (
             <HeartOutlined />
           )}
-          <div>{this.state.like_count}</div>
+          <div>{detail.like_count}</div>
         </StarBtn>
       </StarWrapper>
     );
@@ -103,7 +93,7 @@ class Star extends React.Component {
 
 const mapProps = (props) => {
   return {
-    detail: props.detail.get('content'),
+    detail: props.detail.get("content"),
   };
 };
 
