@@ -18,8 +18,18 @@ const getQueryString = (name) => {
   for (var pair of searchParams.entries()) {
     result[pair[0]] = pair[1];
   }
-  console.log("result",result)
   return result;
 };
 
-export { randomColor, randomFontSize, getQueryString };
+const judgeReactBottom = (event) => {
+  console.log(event)
+  const clientHeight = event.target.clientHeight;
+  const scrollHeight = event.target.scrollHeight;
+  const scrollTop = event.target.scrollTop;
+  debugger;
+  const isBottom = clientHeight + scrollTop === scrollHeight;
+  console.log("isBottom", isBottom);
+  return isBottom;
+};
+
+export { randomColor, randomFontSize, getQueryString, judgeReactBottom };

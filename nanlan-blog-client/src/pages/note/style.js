@@ -13,7 +13,7 @@ export const NoteWrapper = styled.div`
 `;
 
 export const NoteLeft = styled.div`
-  ${media.maxWidth900`width: 100%;`}
+  ${media.maxWidth900`width: 100%;margin-bottom:0`}
   width: 70%;
   margin-bottom: 84px;
 `;

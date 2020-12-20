@@ -13,9 +13,9 @@ export const ListWrapper = styled.div`
 `;
 
 export const ListLeft = styled.div`
-  ${media.maxWidth900`width: 100%;`}
-  width: 70%;
   margin-bottom: 84px;
+  ${media.maxWidth900`width: 100%;margin-bottom:0`}
+  width: 70%;
 `;
 
 export const ListRight = styled.div`

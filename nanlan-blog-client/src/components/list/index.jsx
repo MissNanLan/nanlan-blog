@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { Tag } from "antd";
+import { Tag, Pagination } from "antd";
 import {
   ArticleList,
   ArticleItem,
@@ -10,6 +10,7 @@ import {
   ArticleLeft,
   ArticleRight,
   ArticleOperation,
+  PaginationContent,
   ReadMore,
   NotAnyMore,
 } from "./style";
@@ -18,7 +19,7 @@ import { actionCreators } from "../../pages/home/store";
 
 class List extends React.PureComponent {
   render() {
-    const { list, handleReadMore, currentPage, totalPage } = this.props;
+    const { list, handleReadMore, currentPage, amount, totalPage } = this.props;
     return (
       <div>
         <ArticleList>
@@ -51,8 +52,12 @@ class List extends React.PureComponent {
                     <ArticleRight>
                       <div className="title">
                         {item.title}
-                        {item.tag.map((it) => {
-                          return <Tag color="success">{it.name}</Tag>;
+                        {item.tag.map((it, index) => {
+                          return (
+                            <div>
+                              <Tag color="success" key={it.id}>{it.name}</Tag>
+                            </div>
+                          );
                         })}
                       </div>
                       <p className="abstract">{item.abstract}</p>
@@ -65,17 +70,27 @@ class List extends React.PureComponent {
               </Link>
             );
           })}
-          <ReadMore
+
+          <PaginationContent>
+            <Pagination
+              total={amount}
+              showTotal={(total) => `总共 ${total} 条`}
+              onChange={(page, pageSize) => {
+                handleReadMore(page, pageSize, []);
+              }}
+            />
+          </PaginationContent>
+
+          {/* <ReadMore
             currentPage={currentPage}
             totalPage={totalPage}
-            onClick={() => {
-              handleReadMore(currentPage, totalPage, list);
+            onChange={(page, pageSize) => {
+              handleReadMore(page, pageSize, list);
             }}
           >
             阅读更多
-          </ReadMore>
+          </ReadMore> */}
           {/* <Skeleton loading={isSkeletonLoading} active></Skeleton> */}
-          {currentPage > totalPage ? <NotAnyMore>没有更多了</NotAnyMore> : ""}
         </ArticleList>
       </div>
     );
@@ -87,6 +102,7 @@ const mapStateToProps = (state) => {
     list: state.home.get("articleList"),
     currentPage: state.home.get("currentPage"),
     totalPage: state.home.get("totalPage"),
+    amount: state.home.get("amount"),
     isSkeletonLoading: state.home.get("isSkeletonLoading"),
   };
 };
@@ -95,9 +111,7 @@ const mapDispatch = (dispatch) => {
   return {
     handleReadMore(currentPage, totalPage, list) {
       if (currentPage <= totalPage) {
-        dispatch(
-          actionCreators.getHomeInfo({ pageNumber: currentPage + 1, list })
-        );
+        dispatch(actionCreators.getHomeInfo({ pageNumber: currentPage, list }));
         return "";
       }
       return "notAnyMore";

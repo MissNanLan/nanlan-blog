@@ -165,13 +165,6 @@ class Register extends React.Component {
               </Form.Item>
 
               <Form.Item>
-                <Checkbox>
-                  我已经阅读
-                  {/* <a href=''>协议</a> */}
-                </Checkbox>
-              </Form.Item>
-
-              <Form.Item>
                 <Button
                   type="primary"
                   htmlType="submit"

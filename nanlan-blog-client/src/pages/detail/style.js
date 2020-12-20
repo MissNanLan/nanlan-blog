@@ -20,6 +20,7 @@ export const DetailLeft = styled.div`
   text-align: center;
   padding: 1rem;
   margin-bottom: 84px;
+  ${media.maxWidth900`margin-bottom: 0;`}
   ${OperationItem}{
     justify-content: center;
   }

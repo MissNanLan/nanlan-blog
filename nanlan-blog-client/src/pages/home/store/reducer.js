@@ -7,7 +7,7 @@ const defaultState = fromJS({
   isSkeletonLoading: true,
   currentPage: 1,
   amount: 10, // 总条数
-  totalPage: 2, // 总页数
+  totalPage: 1, // 总页数
 });
 
 export default (state = defaultState, action) => {

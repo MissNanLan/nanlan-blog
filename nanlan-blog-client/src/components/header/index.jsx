@@ -43,6 +43,7 @@ class Header extends React.Component {
 
   linkTo = () => {
     localStorage.clear();
+    console.log("this.props", this.props);
     this.props.history.push("/login");
   };
 

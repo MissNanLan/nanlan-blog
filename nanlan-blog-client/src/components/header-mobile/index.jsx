@@ -34,15 +34,15 @@ import {
 class HeaderMobile extends React.Component {
   state = { visible: false };
 
-  menu = () => {
-    return (
-      <Menu>
-        <Menu.Item key="0">
-          <span onClick={this.linkTo}>退出</span>
-        </Menu.Item>
-      </Menu>
-    );
-  };
+  // menu = () => {
+  //   return (
+  //     <Menu>
+  //       <Menu.Item key="0">
+  //         <span onClick={this.linkTo}>退出</span>
+  //       </Menu.Item>
+  //     </Menu>
+  //   );
+  // };
 
   linkTo = () => {
     localStorage.clear();
@@ -202,7 +202,7 @@ class HeaderMobile extends React.Component {
             </NavBar>
 
             <Addition>
-              {account && <AdditionItem to="/home">退出</AdditionItem>}
+              {account && <AdditionItem onClick={this.linkTo} >退出</AdditionItem>}
               <NavLink to="/regisiter">
                 <AdditionItem>注册</AdditionItem>
               </NavLink>

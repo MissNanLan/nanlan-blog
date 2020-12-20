@@ -1,24 +1,17 @@
 /* eslint-disable */
-import React from 'react';
-import { connect } from 'react-redux';
-import { UpOutlined } from '@ant-design/icons';
-import {
-  HomeWrapper,
-  HomeBox,
-  HomeLeft,
-  HomeRight,
-  BackTop
-} from './style';
-import Banner from './component/Banner';
-import Recommend from '../../components/recommend';
-import Tag from '../../components/tag';
-import Category from '../../components/category';
-import Archives from '../../components/archives';
-import List from '../../components/list';
-import { actionCreators } from './store';
+import React from "react";
+import { connect } from "react-redux";
+import { UpOutlined } from "@ant-design/icons";
+import { HomeWrapper, HomeBox, HomeLeft, HomeRight, BackTop } from "./style";
+import Banner from "./component/Banner";
+import Recommend from "../../components/recommend";
+import Tag from "../../components/tag";
+import Category from "../../components/category";
+import Archives from "../../components/archives";
+import List from "../../components/list";
+import { actionCreators } from "./store";
 
 class Home extends React.Component {
-  
   componentDidMount() {
     const { changeHomeData } = this.props;
     changeHomeData();
@@ -27,7 +20,7 @@ class Home extends React.Component {
 
   componentWillUnmount() {
     const { changeBackTopShow } = this.props;
-    window.removeEventListener('scroll', changeBackTopShow);
+    window.removeEventListener("scroll", changeBackTopShow);
   }
 
   handleScrollTop() {
@@ -36,13 +29,13 @@ class Home extends React.Component {
 
   backTop() {
     const { changeBackTopShow } = this.props;
-    window.addEventListener('scroll', changeBackTopShow);
+    window.addEventListener("scroll", changeBackTopShow);
   }
 
   render() {
     const { isArriveBottom } = this.props;
     return (
-      <HomeWrapper>
+      <HomeWrapper ref={(node) => (this.contentNode = node)}>
         <Banner />
         <HomeBox>
           <HomeLeft>
@@ -60,7 +53,7 @@ class Home extends React.Component {
             <UpOutlined />
           </BackTop>
         ) : (
-          ''
+          ""
         )}
       </HomeWrapper>
     );
@@ -69,7 +62,7 @@ class Home extends React.Component {
 
 const mapProps = (props) => {
   return {
-    isArriveBottom: props.home.get('isArriveBottom'),
+    isArriveBottom: props.home.get("isArriveBottom"),
   };
 };
 

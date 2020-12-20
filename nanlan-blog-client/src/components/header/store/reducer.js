@@ -7,6 +7,7 @@ const defaultState = fromJS({
   list: [],
   page: 1,
   totalPage: 1,
+  amount: 1,
   mouseIn: false
 });
 
@@ -17,7 +18,7 @@ export default (state = defaultState, action) => {
     case constants.SEARCH_BlUR:
       return state.set('focused', false);
     case constants.CHANGE_LIST:
-      return state.set('list', action.data).set('totalPage', action.totalPage);
+      return state.set('list', action.data).set('totalPage', action.totalPage).set('amount', action.amount);
     case constants.MOUSE_ENTER:
       return state.set('mouseIn', true);
     case constants.MOUSE_LEAVE:

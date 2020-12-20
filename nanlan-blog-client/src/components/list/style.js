@@ -96,3 +96,8 @@ export const NotAnyMore = styled.div`
   padding: 1rem 0;
   font-size: 1rem;
 `;
+
+export const PaginationContent = styled.div`
+  margin-bottom: 20px;
+  text-align:center;
+`
