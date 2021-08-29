@@ -574,3 +574,13 @@ name: "ClusterClientNoResponseError"
 pid: 64448
 hostname: nanlandeMacBook-Pro.local
 
+2021-08-29 13:51:16,040 INFO 68536 [egg:logger] init all loggers with options: {"dir":"/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/logs/nanlan-blog-server-egg","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"nanlan-blog-server-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2021-08-29 13:51:16,060 INFO 68536 [egg:core] dump config after load, 13ms
+2021-08-29 13:51:16,102 INFO 68536 [egg-watcher] Start watching: ["/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/app","/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/config","/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/mocks","/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/mocks_proxy","/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/app.js"]
+2021-08-29 13:51:16,102 INFO 68536 [egg-watcher] Start watching: "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/app"
+2021-08-29 13:51:16,102 INFO 68536 [egg-watcher] Start watching: "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/config"
+2021-08-29 13:51:16,103 INFO 68536 [egg-watcher] Start watching: "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/mocks"
+2021-08-29 13:51:16,103 INFO 68536 [egg-watcher] Start watching: "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/mocks_proxy"
+2021-08-29 13:51:16,103 INFO 68536 [egg-watcher] Start watching: "/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/app.js"
+2021-08-29 13:51:16,103 INFO 68536 [egg-watcher:agent] watcher start success
+2021-08-29 13:51:16,130 INFO 68536 [egg:core] dump config after ready, 3ms
