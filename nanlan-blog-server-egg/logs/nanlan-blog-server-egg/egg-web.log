@@ -1570,3 +1570,21 @@
 2020-11-19 23:04:19,102 INFO 65637 [egg:core] dump config after ready, 7ms
 2020-11-20 01:41:42,400 WARN 65637 [ClusterClient:Watcher] follower closed, and try to init it again
 2020-11-20 09:55:16,025 WARN 65637 [ClusterClient:Watcher] follower closed, and try to init it again
+2021-08-29 13:51:16,620 INFO 68538 [egg:logger] init all loggers with options: {"dir":"/Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/logs/nanlan-blog-server-egg","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"nanlan-blog-server-egg-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2021-08-29 13:51:16,639 INFO 68538 [egg-multipart] stream mode enable
+2021-08-29 13:51:17,043 INFO 68538 [egg-mongoose] connecting mongodb://localhost:27017/nanlan-blog
+2021-08-29 13:51:17,151 INFO 68538 [egg-static] starting static serve /public/ -> /Users/nanlan/Documents/my-project/react-project/nanlan-blog/nanlan-blog-server-egg/app/public
+2021-08-29 13:51:17,153 INFO 68538 [egg-security] use csrf middleware
+2021-08-29 13:51:17,154 INFO 68538 [egg-security] use methodnoallow middleware
+2021-08-29 13:51:17,154 INFO 68538 [egg-security] use noopen middleware
+2021-08-29 13:51:17,155 INFO 68538 [egg-security] use nosniff middleware
+2021-08-29 13:51:17,156 INFO 68538 [egg-security] use xssProtection middleware
+2021-08-29 13:51:17,156 INFO 68538 [egg-security] use xframe middleware
+2021-08-29 13:51:17,157 INFO 68538 [egg-security] use dta middleware
+2021-08-29 13:51:17,157 INFO 68538 [egg-security] compose 7 middlewares into one security middleware
+2021-08-29 13:51:17,168 INFO 68538 [egg:core] dump config after load, 5ms
+2021-08-29 13:51:17,171 INFO 68538 [egg-mongoose] starting...
+2021-08-29 13:51:17,196 INFO 68538 [egg-mongoose] mongodb://localhost:27017/nanlan-blog connected successfully
+2021-08-29 13:51:17,197 INFO 68538 [egg-mongoose] instance[0] start successfully
+2021-08-29 13:51:17,199 INFO 68538 [egg-watcher:application] watcher start success
+2021-08-29 13:51:17,206 INFO 68538 [egg:core] dump config after ready, 5ms
