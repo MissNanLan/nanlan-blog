@@ -1,8 +1,8 @@
-import axios from '../../../server/axios';
+import axios from "../../../server/axios";
 
 const changeHomeData = (result) => ({
-  type: 'change_home_data',
-  bannerList: '',
+  type: "change_home_data",
+  bannerList: "",
   articleList: result.articleList || [],
   isSkeletonLoading: result.isSkeletonLoading || false,
   currentPage: result.currentPage || 1,
@@ -13,15 +13,15 @@ const changeHomeData = (result) => ({
 export const getHomeInfo = (params) => {
   const _reqParmas = {
     pageSize: params.pageSize || 10,
-    ...params
+    ...params,
   };
   delete _reqParmas.list;
   return (dispatch) => {
     dispatch(changeHomeData({ isSkeletonLoading: true }));
     axios
-      .post('/api/article/list', _reqParmas)
+      .post("/api/article/list", _reqParmas)
       .then((res) => {
-        const _articleList = params.list.concat(res.data.result);
+        const _articleList = params.list.concat(res.data);
         dispatch(
           changeHomeData({
             articleList: _articleList,
@@ -39,6 +39,6 @@ export const getHomeInfo = (params) => {
 };
 
 export const toggleBackTopShow = (params) => ({
-  type: 'change_back_show',
+  type: "change_back_show",
   isArriveBottom: params,
 });

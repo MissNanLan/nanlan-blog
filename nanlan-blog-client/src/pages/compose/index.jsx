@@ -141,16 +141,16 @@ class Compose extends React.Component {
   componentWillMount() {
     let tagList = [];
     const { Option } = Select;
-    axios.post("/api/tag/list", {}).then((res) => {
-      if (res.status === 200) {
-        res.data.forEach((item) => {
-          tagList.push(<Option key={item.name}>{item.name}</Option>);
-        });
-        this.setState({
-          tagList: tagList,
-        });
-      }
-    });
+    // axios.post("/api/tag/list", {}).then((res) => {
+    //   if (res.status === 200) {
+    //     res.data.forEach((item) => {
+    //       tagList.push(<Option key={item.name}>{item.name}</Option>);
+    //     });
+    //     this.setState({
+    //       tagList: tagList,
+    //     });
+    //   }
+    // });
   }
 
   render() {

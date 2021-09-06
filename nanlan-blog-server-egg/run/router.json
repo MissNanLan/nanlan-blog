@@ -18,8 +18,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/article/list",
-    "regexp": "/^\\/article\\/list(?:\\/(?=$))?$/",
+    "path": "/api/article/list",
+    "regexp": "/^\\/api\\/article\\/list(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
@@ -30,8 +30,8 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/article/save",
-    "regexp": "/^\\/article\\/save(?:\\/(?=$))?$/",
+    "path": "/api/article/save",
+    "regexp": "/^\\/api\\/article\\/save(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

@@ -10,9 +10,9 @@ import * as util from "../../utils";
 function Tag() {
   const [tagList, setTagList] = useState([]);
   useEffect(() => {
-    axios.post("/api/tag/list", {}).then((res) => {
-      setTagList(res.data);
-    });
+    // axios.post("/api/tag/list", {}).then((res) => {
+    //   setTagList(res.data);
+    // });
   }, []);
 
   return (

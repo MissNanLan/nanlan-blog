@@ -14,11 +14,11 @@ class Recommend extends React.PureComponent {
     };
   }
   componentDidMount() {
-    axios.post("/api/recommend/list", {}).then((res) => {
-      this.setState({
-        recommendList: res.data,
-      });
-    });
+    // axios.post("/api/recommend/list", {}).then((res) => {
+    //   this.setState({
+    //     recommendList: res.data,
+    //   });
+    // });
   }
 
   render() {
