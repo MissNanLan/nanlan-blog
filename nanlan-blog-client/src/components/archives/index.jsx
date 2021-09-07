@@ -9,9 +9,9 @@ import { ArchivesItem } from "./style";
 function Archives() {
   const [archivesList, setarchivesList] = useState([]);
   useEffect(() => {
-    axios.post("/api/archives/list", {}).then((res) => {
-      setarchivesList(res.data);
-    });
+    // axios.post("/api/archives/list", {}).then((res) => {
+    //   setarchivesList(res.data);
+    // });
   }, []);
   return (
     <Wrapper>
